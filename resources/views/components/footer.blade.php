@@ -21,8 +21,8 @@
                         10140, Thailand</p>
                 </div>
             </div>
-            <div class="row m-auto mt-3">
-                <small class="text-white">&copy; 2019 BuranaArsa All Rights Reserved</small>
+            <div class="row m-auto">
+                <small class="text-white pt-3">&copy; 2019 BuranaArsa All Rights Reserved</small>
             </div>
         </div>
     </div>

@@ -2,6 +2,6 @@
 
 @section('content')
     <section>
-
+    test
     </section>
 @endsection

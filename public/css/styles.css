@@ -33,3 +33,9 @@ footer {
 .text-white {
     color: #ecf0f1 !important;
 }
+
+/* Navigation bar */
+
+.app-logo {
+    max-width: 10%;
+}
