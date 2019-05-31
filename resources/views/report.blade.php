@@ -10,8 +10,14 @@
             <input id="images" name="images[]" accept="image/png,image/jpg,image/jpeg" type="file" multiple class="d-none">
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
-        <div class="row mx-0">
-        
+        <div class="row mx-0 justify-content-center mt-3">
+            <select class="wide-select">
+                <option data-display="Select">Nothing</option>
+                <option value="1">Some option</option>
+                <option value="2">Another option</option>
+                <option value="3" disabled>A disabled option</option>
+                <option value="4">Potato</option>
+            </select>
         </div>
         <div class="row mx-0 mt-4">
             <div class="col form-group p-4">
@@ -19,8 +25,10 @@
                 <textarea id="description" class="form-control" rows="4" name="description"></textarea>
             </div>
         </div>
+        <div class="row justify-content-end">
+            <button type="button" typeof="submit" class="btn btn-primary">Submit</button>
+        </div>
     </form>
-
     <script>
         document.querySelector('#images').addEventListener('change', function() {
             console.log(this.files)
@@ -35,5 +43,10 @@
                 text.innerHTML = 'No file chosen'
             } 
         })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('select').niceSelect();
+        });
     </script>
 @endsection

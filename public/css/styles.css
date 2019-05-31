@@ -39,3 +39,11 @@ footer {
 .app-logo {
     max-width: 10%;
 }
+
+/*report submiting page*/
+.wide-select{
+    width: 90%;
+}
+/*.wide-select > .wide-select {*/
+/*    width: 70%;*/
+/*}*/
