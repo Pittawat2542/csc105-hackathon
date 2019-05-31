@@ -47,7 +47,7 @@ class RaportController extends Controller
      */
     public function create()
     {
-        return view('report', ['categories'=>Category::pluck('id', 'name')]);
+        return view('report', ['categories'=>Category::all()]);
     }
 
     /**
@@ -58,7 +58,7 @@ class RaportController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request);
         $data = $request->except('user_id');
         $data['user_id'] = Auth::user()->id;
         $photo = new Photo();

@@ -18,7 +18,6 @@ class CreateRaportsTable extends Migration
             $table->integer('user_id');
             $table->integer('user_id_report');
             $table->integer('photo_id');
-            $table->text('title');
             $table->text('body')->nullable();
             $table->double('lat');
             $table->double('lng');

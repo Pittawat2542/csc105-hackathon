@@ -3,23 +3,19 @@
 @section('content')
     @include('logo')
     <p class="display-4 text-center">REPORT</p>
-    <form class="container">
+    <form class="container" method="{{Route('store.raport')}}" method="POST">
         @csrf
         <div class="row align-items-center justify-content-center mx-0">
             <label class="col-auto btn btn-info p-3 ml-4" for="images">Upload your images</label>
-            <input id="images" name="images[]" accept="image/png,image/jpg,image/jpeg" type="file" multiple class="d-none">
+            <input id="images" name="photo[]" accept="image/png,image/jpg,image/jpeg" type="file" multiple class="d-none">
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
         <div class="row mx-0 justify-content-center mt-3">
-            @foreach($categories as $category)
-                {!! Form::select('category', $category, null, ['class' => 'wide-select']) !!}
-            @endforeach
-
             <select class="wide-select">
                 <option data-display="Select">Nothing</option>
                 @if($categories)
                     @foreach($categories as $category)
-                        <option value="{{$category['id']}}">{{$category['name']}}</option>
+                        <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 @endif
             </select>
@@ -31,7 +27,8 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <button type="button" typeof="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
         </div>
     </form>
     <script>
