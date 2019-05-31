@@ -23,7 +23,6 @@
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                console.log(position);
                 lat = position.coords.latitude;
                 lng = position.coords.longitude;
 
@@ -40,17 +39,16 @@
             });
         }
 
-        var locationObj = {lat: lat, lng: lng};
+        var locationObj = {lat: parseFloat(lat), lng: parseFloat(lng)};
 
         // Initialize and add the map
         function initMap() {
             // The location of Uluru
-            var current = locationObj;
             // The map, centered at Uluru
             var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 4, center: current});
+                document.getElementById('map'), {zoom: 10, center: locationObj});
             // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({position: current, map: map});
+            var marker = new google.maps.Marker({position: locationObj, map: map});
         }
     </script>
 @endsection
