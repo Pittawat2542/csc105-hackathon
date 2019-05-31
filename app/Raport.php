@@ -34,6 +34,10 @@ class Raport extends Model
         return $this->belongsTo('App\Category');
     }
 
+    public function photo() {
+        return $this->belongsTo('App\Photo');
+    }
+
     public function calculateDistance() {
         $lat1 = $this->lat;
         $lat2 = Session::get('userLat');
