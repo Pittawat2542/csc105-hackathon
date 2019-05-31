@@ -49,3 +49,11 @@ footer {
 .full-select {
     width: 100%;
 }
+
+.full-select ~ .nice-select .list {
+    width: 100%;
+}
+
+.wide-select ~ .nice-select .list {
+    width: 90%;
+}
