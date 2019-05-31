@@ -2,7 +2,7 @@
 
 @section('content')
     @include('logo')
-    <section class="container card">
+    <section class="container card mb-3">
         <div class="container p-5">
             <div class="row">
                 <div class="col text-center mb-3">
@@ -11,20 +11,20 @@
                 </div>
             </div>
             <div class="row">
-                <p><span class="font-weight-bold">Category:</span>{{$raport->category->name}} </p>
-                <p><span class="font-weight-bold">Description:</span>{{$raport->body}}</p>
+                <h4><span class="font-weight-bold">Category:</span> {{$raport->category->name}} </h4>
+                <p><span class="font-weight-bold">Description:</span> {{$raport->body}}</p>
             </div>
-            <div class="row">
+            <div class="d-flex flex-column">
                 <h4 class="font-weight-bold">Proof</h4>
                 <form action="{{route('fixed.raport')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row align-items-center justify-content-center mx-0">
-                        <label class="col-auto btn btn-info p-3 ml-4" for="images">Upload your images</label>
+                        <label class="col-auto btn btn-info p-3 ml-4" for="images"><i class="far fa-images"></i> Upload your images</label>
                         <input id="images" name="photo" accept="image/png,image/jpg,image/jpeg" type="file" class="d-none">
-                        <input name="id" type="hidden" value="{{$raport->id}}">
+                        <input name="id" type="hidden" value="1234">
                         <span id="countFiles" class="col-auto ml-2">No files chosen</span>
                     </div>
-                    <button class="btn btn-primary bg-primary-orange ml-auto">Submit</button>
+                    <button class="btn btn-primary bg-primary-orange float-right"><i class="far fa-check-square"></i> Submit</button>
                 </form>
             </div>
         </div>
