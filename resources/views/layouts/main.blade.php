@@ -39,5 +39,28 @@
 <script src="assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
 <!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script>
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position);
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            $.ajax({
+                url:'/getgeo',
+                type:'get',
+                data:{latitude:lat,longitude:lng},
+
+
+                success:function(data)
+                {
+                    alert('success');
+                }
+
+            });
+        });
+    }
+
+</script>
 </body>
 </html>

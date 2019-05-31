@@ -40,6 +40,9 @@ Route::group(['middleware'=>'auth'], function() {
 
 });
 
+
+Route::get('/getgeo', 'UserController@getGeo');
+
 /* Front-end routes */
 
 Route::get('/landingpage', function() {
