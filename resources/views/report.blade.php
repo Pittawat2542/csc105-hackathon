@@ -46,9 +46,4 @@
             }
         })
     </script>
-    <script>
-        $(document).ready(function() {
-            $('select').niceSelect();
-        });
-    </script>
 @endsection

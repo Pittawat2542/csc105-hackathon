@@ -49,14 +49,4 @@
             </div>
         </div>
     </div>
-    <style>
-        .report-img{
-            width: 150px;
-        }
-        @media screen and (max-width: 568px){
-            .report-img{
-                /*width: 150px;*/
-            }
-        }
-    </style>
 @endsection

@@ -15,19 +15,4 @@
             </div>
         </div>
     </div>
-
-    <style>
-        .d-board .pic {
-            width: 100px;
-            height: 125px;
-            background-color: rgb(0, 0, 0);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-        .d-board > .row {
-            border: 1px solid black;
-            border-radius: 5px;
-        }
-    </style>
 @endsection
