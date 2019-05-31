@@ -4,8 +4,8 @@
     @include('logo')
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12"><span class="font-weight-bold">Total hours:</span> 1000</div>
-            <div class="col-md-6 col-sm-12 text-right"><span class="font-weight-bold">John Doe</span> has
+            <div class="col-md-6 col-sm-12"><span class="font-weight-bold"><i class="far fa-clock"></i> Total hours:</span> 1000</div>
+            <div class="col-md-6 col-sm-12 text-right"><span class="font-weight-bold"><i class="fas fa-user"></i> John Doe</span> has
                 fixed :
             </div>
         </div>
