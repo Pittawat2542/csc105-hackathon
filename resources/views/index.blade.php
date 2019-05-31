@@ -9,7 +9,7 @@
             @auth
                 <a class="col-auto btn btn-primary bg-primary-blue btn-raised btn-lg my-3 mb-5"
                    style="font-size: 1rem;"
-                   href="#"><i class="fas fa-hand-holding-heart"></i> VOLUNTEER</a>
+                   href="{{route('volunteer.index')}}"><i class="fas fa-hand-holding-heart"></i> VOLUNTEER</a>
             @endauth
         </div>
         <div class="row">

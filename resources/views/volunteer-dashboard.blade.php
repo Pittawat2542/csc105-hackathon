@@ -91,6 +91,8 @@
                                         </button>
                                     </form>
                                 </div>
+                                <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                    <span style="font-size: 80%;">from your location.</span></h5>
                             </div>
                         </div>
                     </div>
