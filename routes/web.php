@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>'auth'], function() {
+
+    Route::get('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
+    Route::resource('raport', 'RaportController', ['names'=>[
+        'index' => 'index.raport',
+        'create' => 'create.raport',
+        'store' => 'store.raport',
+    ]
+    ]);
+
+});
