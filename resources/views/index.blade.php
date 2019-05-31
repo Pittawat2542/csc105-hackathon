@@ -4,13 +4,13 @@
     @include('logo')
     <div class="container">
         <div class="row justify-content-center">
-            <a class="col-auto btn btn-primary bg-primary-orange btn-raised my-3" style="font-size: 1rem;"
+            <a class="col-auto btn btn-primary bg-primary-orange btn-raised btn-lg my-3" style="font-size: 1rem;"
                href="{{ route('create.raport') }}"><i class="far fa-file-alt"></i> REPORT</a>
         </div>
         <div class="row">
             <div id="category" class="col">
                 <div class="row d-flex align-items-center">
-                    <h4 class="ml-3 ml-md-0 font-weight-bold"><i class="fas fa-caret-square-down"></i> Category:</h4>
+                    <h4 class="ml-3 ml-md-0 font-weight-bold">Category:</h4>
                     <div class="col">
                         <select class="full-select">
                             <option data-display="Select">Nothing</option>

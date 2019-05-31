@@ -91,3 +91,59 @@ footer {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+/* Volunteer Ranking */
+#volunteerList h4,#volunteerList i{
+    font-size: 2.3rem;
+    color: gray;
+    position: absolute;
+    left: 5%;
+}
+#volunteerList .card:nth-child(2) h4,#volunteerList .card:nth-child(2) i {
+    font-size: 2.3rem;
+    color: #fff41e;
+    position: absolute;
+    left: 5%;
+}
+#volunteerList .card:nth-child(3) h4,#volunteerList .card:nth-child(3) i {
+    font-size: 2.3rem;
+    color: 	#D3D3D3;
+    position: absolute;
+    left: 5%;
+}
+#volunteerList .card:nth-child(4) h4,#volunteerList .card:nth-child(4) i {
+    font-size: 2.3rem;
+    color: #b87333;
+    position: absolute;
+    left: 5%;
+}
+
+.user-img{
+    border-radius: 35px;
+    width: 60px;
+}
+@media screen and (min-width: 576px){
+    .card-footer{
+        justify-content: center;
+    }
+}
+#volunteerList h4 {
+    top:35% !important;
+}
+.trophy-icon{
+    top: 0;
+}
+.card-h4{
+    top: 30%;
+}
+@media screen and (max-width: 767px){
+    #volunteerList h4 {
+        display: none;
+    }
+
+    @media screen and (min-width: 576px){
+        #volunteerList h4,#volunteerList i{
+            font-size: 3.3rem !important;
+        }
+    }
+}
