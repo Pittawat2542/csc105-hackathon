@@ -53,3 +53,7 @@ Route::get('/login', function() {
 Route::get('/report', function() {
     return view('report');
 });
+
+Route::get('/rank', function() {
+    return view('volunteer-ranking');
+});
