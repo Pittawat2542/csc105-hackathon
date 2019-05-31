@@ -3,10 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
+use Malhal\Geographical\Geographical;
 
 class Raport extends Model
 {
     protected $fillable = ['user_id', 'user_id_report', 'photo_id', 'title', 'body', 'lat', 'lng', 'category_id'];
+    use Geographical;
+    protected static $kilometers = true;
+    const LATITUDE  = 'lat';
+    const LONGITUDE = 'lng';
 
     public function isFixed() {
         if(!empty($this->user_id)) {
@@ -28,22 +34,27 @@ class Raport extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function distance() {
-            $lng1 = Session::get('userLng');
-            $lon1 = Session::get('userLon');
-            $lng2 = $this->lat;
-            $lon2 = $this->lng;
-            $R = 6371; // Radius of the earth in km
-            $dLat = ($lat2-$lat1)* (Math.PI/180);  // deg2rad below
-            $dLon = ($lon2-$lon1)* (Math.PI/180);
-            $a =
-                Math.sin($dLat/2) * Math.sin($dLat/2) +
-                Math.cos(($lat1)* (Math.PI/180)) * Math.cos(($lat2)* (Math.PI/180)) *
-                Math.sin($dLon/2) * Math.sin($dLon/2)
-            ;
-            $c = 2 * Math.atan2(Math.sqrt($a), Math.sqrt(1-$a));
-            $d = $R * $c; // Distance in km
-            return $d;
+    public function calculateDistance() {
+        $lat1 = $this->lat;
+        $lat2 = Session::get('userLat');
+        $lon1 = $this->lng;
+        $lon2 = Session::get('userLng');
+        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+            return 0;
         }
+        else {
+            $theta = $lon1 - $lon2;
+            $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+            $dist = acos($dist);
+            $dist = rad2deg($dist);
+            $miles = $dist * 60 * 1.1515;
+            $result = $miles * 1.609344;
+            if($result<0.02) {
+                return "<0.02";
+            } else {
+                return ($miles * 1.609344);
+            }
+        }
+    }
 
 }
