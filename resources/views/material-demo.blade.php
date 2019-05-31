@@ -74,4 +74,4 @@
         </div>
     </footer>
 
-@endsection('content')
+@endsection

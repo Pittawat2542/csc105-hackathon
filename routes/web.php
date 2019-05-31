@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
@@ -26,9 +26,7 @@ Route::get('/facebook', function () {
 Route::get('/auth/facebook', 'Auth\FacebookController@redirectToFacebook');
 Route::get('/auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
 
-Route::get("/demo", function() {
-    return view("material-demo");
-});
+
 
 Route::group(['middleware'=>'auth'], function() {
 
@@ -41,6 +39,8 @@ Route::group(['middleware'=>'auth'], function() {
     ]);
 
 });
+
+/* Front-end routes */
 
 Route::get('/landingpage', function() {
     return view('landing-page');
@@ -56,4 +56,8 @@ Route::get('/report', function() {
 
 Route::get('/rank', function() {
     return view('volunteer-ranking');
+});
+
+Route::get("/demo", function() {
+    return view("material-demo");
 });
