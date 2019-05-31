@@ -13,9 +13,12 @@
                     <h4>Category:</h4>
                     <div class="col">
                         <select name="" id="" class="full-select">
-                            <option value="">TEST</option>
-                            <option value="">TEST</option>
-                            <option value="">TEST</option>
+                            <option data-display="Select">Nothing</option>
+                            @if($categories)
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                 </div>

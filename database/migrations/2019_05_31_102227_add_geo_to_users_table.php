@@ -14,8 +14,8 @@ class AddGeoToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->double('lat')->nullable()->default(0.00);
-            $table->double('lng')->nullable()->default(0.00);
+            $table->double('lat')->nullable()->default(1);
+            $table->double('lng')->nullable()->default(1);
         });
     }
 
