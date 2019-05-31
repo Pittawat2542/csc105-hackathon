@@ -63,8 +63,8 @@
                     </select>
                 </div>
             </div>
-                @if($raports)
-                    @foreach($raports as $raport)
+            @if($raports)
+                @foreach($raports as $raport)
                     <div class="row mx-1">
                         <div class="card">
                             <div class="card-body row">
@@ -73,9 +73,13 @@
                                          src="{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}"
                                          alt="">
                                 </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <h4 class="font-weight-bold">Description</h4>
-                                    <p>{{$raport->body}}</p>
+                                <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-around">
+                                    <div>
+                                        <h4 class="font-weight-bold">Description</h4>
+                                        <p>{{$raport->body}}</p>
+                                    </div>
+                                    <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                        <span style="font-size: 80%;">from your location.</span></h5>
                                 </div>
                                 <div class="col-md-2 col-sm-12 d-flex flex-column justify-content-center">
                                     <form action="{{route('report.show', $raport->id)}}">
@@ -88,12 +92,10 @@
                                         @csrf
                                         <button onclick="test(this)" class="btn btn-danger btn-block btn-round"
                                                 type="button"><i
-                                                    class="fas fa-heart"></i> Interest
+                                                class="fas fa-heart"></i> Interest
                                         </button>
                                     </form>
                                 </div>
-                                <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
-                                    <span style="font-size: 80%;">from your location.</span></h5>
                             </div>
                         </div>
                     </div>
@@ -102,15 +104,15 @@
         </div>
     </section>
     <script>
-        $( document ).ready(function() {
+        $(document).ready(function () {
             var allInterest = document.querySelectorAll('.interested');
-            for(let i =0;i<allInterest.length;i++){
+            for (let i = 0; i < allInterest.length; i++) {
                 allInterest[i].innerHTML = '<i class="fas fa-heart"></i> Interested'
             }
         });
 
 
-        function clickInterest(x){
+        function clickInterest(x) {
             var report_id = $(x).attr('id');
             $.ajax({
                 url: '/wishlist/' + report_id + '/store',
@@ -119,11 +121,11 @@
                 },
                 type: "POST",
                 success: function () {
-                    if(x.classList.contains("interested")) {
+                    if (x.classList.contains("interested")) {
                         x.innerHTML = '<i class="fas fa-heart"></i> Interest';
                         x.classList.remove("interested");
 
-                    }else{
+                    } else {
                         x.innerHTML = '<i class="fas fa-heart"></i> Interested';
                         x.classList.add("interested");
                     }
@@ -131,11 +133,12 @@
             });
 
         }
+
         function test(x) {
-            if(x.classList.contains("interested")) {
+            if (x.classList.contains("interested")) {
                 x.innerHTML = '<i class="fas fa-heart"></i> Interest';
                 x.classList.remove("interested");
-            }else{
+            } else {
                 x.innerHTML = '<i class="fas fa-heart"></i> Interested';
                 x.classList.add("interested");
             }

@@ -4,7 +4,8 @@
     @include('logo')
     <div class="container">
         <div class="row justify-content-center">
-            <a class="col-auto btn btn-primary bg-primary-orange btn-raised btn-lg my-3 mb-5 mr-2" style="font-size: 1rem;"
+            <a class="col-auto btn btn-primary bg-primary-orange btn-raised btn-lg my-3 mb-5 mr-2"
+               style="font-size: 1rem;"
                href="{{ route('create.raport') }}"><i class="far fa-file-alt"></i> REPORT</a>
             @auth
                 <a class="col-auto btn btn-primary bg-primary-blue btn-raised btn-lg my-3 mb-5"
