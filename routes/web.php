@@ -12,6 +12,7 @@
 */
 
 use App\User;
+use Faker\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -29,11 +30,11 @@ Route::group(['middleware'=>'auth'], function() {
     ]
     ]);
 
+    Route::get('/user', 'UserController@index');
 });
 
 
 Route::get('/getgeo', 'UserController@getGeo');
-
 /* Front-end routes */
 
 Route::get('/rank', function() {
@@ -43,6 +44,11 @@ Route::get('/rank', function() {
 Route::get("/dashboard/admin", function() {
     return view("dashboard-admin");
 });
+
+Route::get('/volunteer', function() {
+    return view('volunteer-dashboard');
+});
+
 
 Route::get('/fakereg',function() {
     $faker = Faker\Factory::create();
@@ -54,12 +60,4 @@ Route::get('/fakereg',function() {
         'remember_token' => Str::random(10),
     ]);
     return redirect('/');
-});
-
-Route::get('/user', function() {
-    return view('user-dashboard');
-});
-
-Route::get('/volunteer', function() {
-    return view('volunteer-dashboard');
 });
