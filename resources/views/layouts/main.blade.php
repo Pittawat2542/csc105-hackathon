@@ -11,7 +11,7 @@
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <!-- Material Kit CSS -->
     <link href="/assets/css/material-kit.css?v=2.0.5" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="/css/nice-select.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -32,7 +32,8 @@
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
 <!--  Google Maps Plugin  -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5pqlf37NqcN8xW6-FW2pbFEgpZ7ssTIk&callback=initMap"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
@@ -61,6 +62,7 @@
 
 </script>
 <script src="/assets/js/jquery.nice-select.min.js"></script>
+<script src="/js/jquery.nice-select.min.js"></script>
 <script src="/js/scripts.js"></script>
 </body>
 </html>
