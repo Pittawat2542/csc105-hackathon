@@ -11,7 +11,7 @@
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
         <div class="row mx-0">
-    
+        
         </div>
         <div class="row mx-0 mt-4">
             <div class="col form-group p-4">
