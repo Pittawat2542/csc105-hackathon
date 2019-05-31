@@ -13,6 +13,7 @@
     <link href="/assets/css/material-kit.css?v=2.0.5" rel="stylesheet"/>
     <link rel="stylesheet" href="/css/nice-select.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 @include('components.navbar')
@@ -23,7 +24,6 @@
 
 <!--   Core JS Files   -->
 <script src="https://kit.fontawesome.com/c7ffe98868.js"></script>
-<script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
 <script src="/assets/js/plugins/moment.min.js"></script>
