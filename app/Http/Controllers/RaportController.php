@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Requests\RequestRaport;
 use App\Photo;
 use App\Raport;
 use Illuminate\Http\Request;
@@ -60,12 +59,13 @@ class RaportController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $data = $request->except('user_id');
-        $data['user_id'] = Auth::user()->id;
+        $data['user_id_report'] = Auth::user()->id;
+        $data['lng'] =  Session::get('userLng');
+        $data['lat'] =  Session::get('userLat');
         $photo = new Photo();
         if($file = $request->file('photo')){
-           $data['photo_id'] = $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
+           $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
         }
         Raport::create($data)->id;
         return redirect('/');

@@ -15,13 +15,13 @@ class CreateRaportsTable extends Migration
     {
         Schema::create('raports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('user_id_report');
-            $table->integer('photo_id');
+            $table->integer('user_id')->nullable();
+            $table->integer('user_id_report')->nullable();
+            $table->integer('photo_id')->nullable();
             $table->text('body')->nullable();
-            $table->double('lat');
-            $table->double('lng');
-            $table->integer('category_id');
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
+            $table->integer('category_id')->nullable();
             $table->timestamps();
         });
     }
