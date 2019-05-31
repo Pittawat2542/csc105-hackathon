@@ -7,7 +7,7 @@
         @csrf
         <div class="row align-items-center justify-content-center mx-0">
             <label class="col-auto btn btn-info p-3 ml-4" for="images">Upload your images</label>
-            <input id="images" name="images[]" type="file" multiple class="d-none">
+            <input id="images" name="images[]" accept="image/png,image/jpg,image/jpeg" type="file" multiple class="d-none">
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
         <div class="row mx-0">
