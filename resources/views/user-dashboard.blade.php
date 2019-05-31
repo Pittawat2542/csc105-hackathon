@@ -3,50 +3,35 @@
 @section('content')
     @include('logo')
     <div class="container">
-        <div>
-            <div class="container text-center">
-                <p class="display-4">Username</p>
-                <p class="display-4">has fixed :</p>
-            </div>
-            <div class="card p-5">
-                <div class="row">
-                    <div class="col-auto mb-2">
-                        <img class="report-img" src="https://ichef.bbci.co.uk/news/976/media/images/83351000/jpg/_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg"
-                             alt="" >
-                    </div>
-                    <div class="col">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab debitis dolor doloremque
-                            explicabo laborum natus non perspiciatis placeat quaerat, quasi quis reiciendis, soluta
-                            tempore vitae voluptate! Consequatur debitis laborum maiores?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card p-5">
-                <div class="row">
-                    <div class="col-auto mb-2">
-                        <img class="report-img" src="https://ichef.bbci.co.uk/news/976/media/images/83351000/jpg/_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg"
-                             alt="" >
-                    </div>
-                    <div class="col">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab debitis dolor doloremque
-                            explicabo laborum natus non perspiciatis placeat quaerat, quasi quis reiciendis, soluta
-                            tempore vitae voluptate! Consequatur debitis laborum maiores?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card p-5">
-                <div class="row">
-                    <div class="col-auto mb-2">
-                        <img class="report-img" src="https://ichef.bbci.co.uk/news/976/media/images/83351000/jpg/_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg"
-                             alt="" >
-                    </div>
-                    <div class="col">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab debitis dolor doloremque
-                            explicabo laborum natus non perspiciatis placeat quaerat, quasi quis reiciendis, soluta
-                            tempore vitae voluptate! Consequatur debitis laborum maiores?</p>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12"><span class="font-weight-bold">Total hours:</span> 1000</div>
+            <div class="col-md-6 col-sm-12 text-right"><span class="font-weight-bold">John Doe</span> has
+                fixed :
             </div>
         </div>
+    </div>
+    <div class="container">
+        @for($i = 0; $i < 5; $i++)
+            <div class="row">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="col-md-4 col-sm-12">
+                            <img class="img-fluid"
+                                 src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
+                                 alt="">
+                        </div>
+                        <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid
+                                    atque
+                                    beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia
+                                    nam
+                                    officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endfor
     </div>
 @endsection
