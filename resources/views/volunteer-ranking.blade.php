@@ -3,12 +3,12 @@
 @section('content')
     @include('logo')
 
-    <div class="container text-center" style="background-color: blanchedalmond;">
+    <div class="container text-center">
         <h1>Top volunteer</h1>
         <div class="card">
             <div class="card-footer">
-                <div class="mr-3">
-                    <i class="fas fa-medal trophy-gold d-block h4 m-0"></i>
+                <div class="mr-3 ml-3">
+                    <i class="fas fa-medal trophy-gold d-block m-0"></i>
                     <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image" >
                 </div>
                 <div>
@@ -19,8 +19,8 @@
         </div>
         <div class="card">
             <div class="card-footer">
-                <div class="mr-3">
-                    <i class="fas fa-medal trophy-silver d-block h4 m-0"></i>
+                <div class="mr-3 ml-3">
+                    <i class="fas fa-medal trophy-silver d-block m-0"></i>
                     <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image" >
                 </div>
                 <div>
@@ -31,8 +31,8 @@
         </div>
         <div class="card">
             <div class="card-footer">
-                <div class="mr-3">
-                    <i class="fas fa-medal trophy-copper d-block h4 m-0"></i>
+                <div class="mr-3 ml-3">
+                    <i class="fas fa-medal trophy-copper d-block m-0"></i>
                     <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image" >
                 </div>
                 <div>
@@ -65,6 +65,14 @@
         .user-img{
             border-radius: 35px;
             width: 60px;
+        }
+        .trophy-copper,.trophy-silver,.trophy-gold{
+            font-size: 2.3rem;
+        }
+        @media screen and (min-width: 576px){
+            .card-footer{
+                justify-content: center;
+            }
         }
     </style>
 @endsection

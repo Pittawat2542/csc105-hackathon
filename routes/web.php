@@ -15,11 +15,11 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
-
-Auth::routes();
 
 Route::group(['middleware'=>'auth'], function() {
 
@@ -50,6 +50,10 @@ Route::get('/rank', function() {
     return view('volunteer-ranking');
 });
 
+Route::get("/dashboard/admin", function() {
+    return view("dashboard-admin");
+});
+
 Route::get("/demo", function() {
     return view("material-demo");
 });
@@ -64,4 +68,8 @@ Route::get('/fakereg',function() {
         'remember_token' => Str::random(10),
     ]);
     return redirect('/');
+});
+
+Route::get('/user', function() {
+    return view('user-dashboard');
 });
