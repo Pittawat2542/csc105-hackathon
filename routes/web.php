@@ -46,10 +46,6 @@ Route::get('/landingpage', function() {
     return view('landing-page');
 });
 
-Route::get('/login', function() {
-    return view('login');
-});
-
 Route::get('/report', function() {
     return view('report');
 });
