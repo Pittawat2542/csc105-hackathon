@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <button class="col-auto btn btn-primary btn-raised my-3">
-                LOGIN
+                <i class="fab fa-facebook"> </i> LOGIN
             </button>
         </div>
         <div class="row">
