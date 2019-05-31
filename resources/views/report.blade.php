@@ -34,7 +34,6 @@
     </form>
     <script>
         document.querySelector('#images').addEventListener('change', function () {
-            console.log(this.files)
             text = document.querySelector('#countFiles')
             if (this.files && this.files.length) {
                 if (this.files.length == 1) {
