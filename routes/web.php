@@ -37,7 +37,6 @@ Route::group(['middleware'=>'auth'], function() {
 
 });
 
-
 Route::get('/getgeo', 'UserController@getGeo');
 /* Front-end routes */
 
@@ -60,8 +59,4 @@ Route::get('/fakereg',function() {
         'remember_token' => Str::random(10),
     ]);
     return redirect('/');
-});
-
-Route::get('/fixed', function() {
-    return view('fixed-report');
 });
