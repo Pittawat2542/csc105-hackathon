@@ -5,10 +5,19 @@
     <p class="display-4 text-center">REPORT</p>
     <form class="container">
         @csrf
-        <div class="row align-items-center justify-content-center">
+        <div class="row align-items-center justify-content-center mx-0">
             <label class="col-auto btn btn-info p-3 ml-4" for="images">Upload your images</label>
             <input id="images" name="images[]" type="file" multiple class="d-none">
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
+        </div>
+        <div class="row mx-0">
+    
+        </div>
+        <div class="row mx-0 mt-4">
+            <div class="col form-group p-4">
+                <label for="description" class="ml-4">Description</label>
+                <textarea id="description" class="form-control" rows="4" name="description"></textarea>
+            </div>
         </div>
     </form>
 
