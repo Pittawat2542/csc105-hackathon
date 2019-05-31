@@ -2,142 +2,26 @@
 
 @section('content')
     @include('logo')
-
     <div class="container text-center" id="volunteerList">
-        <h1>Top volunteer</h1>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="first">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="second">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
+        <h1><i class="fas fa-trophy position-static text-primary-orange"></i> Top Volunteers <i
+                class="fas fa-trophy position-static text-primary-orange"></i></h1>
+        @for($i=0; $i<5; $i++)
+            <div class="card">
+                <div class="card-footer">
+                    <div class="mr-5 ml-3">
+                        <i class="fas fa-medal trophy-icon d-block m-0"></i>
+                        <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
+                        <h4 class="d-hidden card-h4" id="first"></h4>
+                    </div>
+                    <div class="text-left">
+                        <p class="h3 mt-0 font-weight-bold">John Doe</p>
+                        <p class="h4"><span class="font-weight-bold">Volunteer Point:</span>1000</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-footer">
-                <div class="mr-3 ml-3">
-                    <i class="fas fa-medal trophy-icon d-block m-0"></i>
-                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="user-img" alt="user image">
-                    <h4 class="d-hidden card-h4" id="third">1<sup>st</sup></h4>
-                </div>
-                <div>
-                    <p class="h3 mt-0">Name surname</p>
-                    <p class="h4">Volunteer Point:1000</p>
-                </div>
-            </div>
-        </div>
-
-
+        @endfor
     </div>
+
     <script>
         $(document).width();
         var first = document.querySelector('#first');

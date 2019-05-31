@@ -6,6 +6,11 @@
         <div class="row justify-content-center">
             <a class="col-auto btn btn-primary bg-primary-orange btn-raised btn-lg my-3 mb-5" style="font-size: 1rem;"
                href="{{ route('create.raport') }}"><i class="far fa-file-alt"></i> REPORT</a>
+            @auth
+                <a class="col-auto btn btn-primary bg-primary-blue btn-raised btn-lg my-3 mb-5"
+                   style="font-size: 1rem;"
+                   href="#"><i class="far fa-handshake"></i> VOLUNTEER</a>
+            @endauth
         </div>
         <div class="row">
             <div id="category" class="col">
@@ -34,10 +39,12 @@
                                     </div>
                                     <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
                                         <div>
-                                            <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description</h4>
+                                            <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description
+                                            </h4>
                                             <p>{{$raport->body}}</p>
                                         </div>
-                                        <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span> <span style="font-size: 80%;">from your location.</span></h5>
+                                        <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                            <span style="font-size: 80%;">from your location.</span></h5>
                                     </div>
                                 </div>
                             </div>

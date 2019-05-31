@@ -154,6 +154,10 @@ footer {
         display: none;
     }
 
+    #volunteerList h1 {
+        font-size: 1.6rem;
+    }
+
     @media screen and (min-width: 576px) {
         #volunteerList h4, #volunteerList i {
             font-size: 3.3rem !important;
