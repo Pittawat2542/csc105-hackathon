@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $categories = 'database/seeds/categories.sql';
         DB::unprepared(file_get_contents($categories));
         $this->command->info('categories table seeded!');
+
+
         // $this->call(UsersTableSeeder::class);
     }
 }
