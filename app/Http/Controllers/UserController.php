@@ -13,6 +13,6 @@ class UserController extends Controller
     public function getGeo(Request $request) {
         Session::put('userLat', $request->latitude);
         Session::put('userLng', $request->longitude);
-        return "updated location". Session::pull('userLat').','.Session::pull('userLng');
+        return "updated location". Session::get('userLat').','.Session::get('userLng');
     }
 }

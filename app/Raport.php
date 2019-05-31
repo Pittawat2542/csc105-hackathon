@@ -28,4 +28,6 @@ class Raport extends Model
         return $this->belongsTo('App\Category');
     }
 
+
+
 }
