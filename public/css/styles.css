@@ -1,5 +1,5 @@
 footer {
-    background-color: black;
+    background-color: #2d3436;
 }
 
 .bg-black {
@@ -65,4 +65,29 @@ footer {
 
 .nice-select .list {
     width: 100%;
+}
+
+/* Dashboard */
+.report-img {
+    width: 150px;
+}
+
+@media screen and (max-width: 568px) {
+    .report-img {
+        /*width: 150px;*/
+    }
+}
+
+/* Admin Dashboard */
+.d-board .pic {
+    width: 100px;
+    height: 125px;
+    background-color: rgb(0, 0, 0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.d-board > .row {
+    border: 1px solid black;
+    border-radius: 5px;
 }
