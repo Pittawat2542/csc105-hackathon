@@ -17,17 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-////Facebook login
-//Route::get('/facebook', function () {
-//    return view('facebook');
-//});
-//Route::get('/auth/facebook', 'Auth\FacebookController@redirectToFacebook');
-//Route::get('/auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
-
-
-
 Route::group(['middleware'=>'auth'], function() {
 
     Route::get('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
