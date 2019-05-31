@@ -3,11 +3,11 @@
 @section('content')
     @include('logo')
     <p class="display-4 text-center">REPORT</p>
-    <form class="container" action="{{Route('store.raport')}}" method="POST">
+    <form class="container" action="{{Route('store.raport')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row align-items-center justify-content-center mx-0">
             <label class="col-auto btn btn-info p-3 ml-4" for="images">Upload your images</label>
-            <input id="images" name="photo[]" accept="image/png,image/jpg,image/jpeg" type="file" multiple class="d-none">
+            <input id="images" name="photo" accept="image/png,image/jpg,image/jpeg" type="file" class="d-none">
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
         <div class="row mx-0 justify-content-center mt-3">

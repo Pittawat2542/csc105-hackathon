@@ -61,13 +61,13 @@ class RaportController extends Controller
     {
         $data = $request->except('user_id');
         $data['user_id_report'] = Auth::user()->id;
-        $data['lng'] =  Session::get('userLng');
-        $data['lat'] =  Session::get('userLat');
+        $data['lng'] = Session::get('userLng');
+        $data['lat'] = Session::get('userLat');
         $photo = new Photo();
         if($file = $request->file('photo')){
-           $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
+           $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', 1);
         }
-        Raport::create($data)->id;
+        Raport::create($data);
         return redirect('/');
     }
 
