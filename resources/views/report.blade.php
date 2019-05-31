@@ -20,9 +20,6 @@
                 @if($categories)
                     @foreach($categories as $category)
                         <option value="{{$category['id']}}">{{$category['name']}}</option>
-                        <option value="2">Another option</option>
-                        <option value="3" disabled>A disabled option</option>
-                        <option value="4">Potato</option>
                     @endforeach
                 @endif
             </select>
