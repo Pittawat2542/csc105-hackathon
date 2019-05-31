@@ -11,10 +11,15 @@
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <!-- Material Kit CSS -->
     <link href="assets/css/material-kit.css?v=2.0.5" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+@include('components.navbar')
 
 @yield('content');
+
+@include('components.footer')
 
 <!--   Core JS Files   -->
 <script src="https://kit.fontawesome.com/c7ffe98868.js"></script>

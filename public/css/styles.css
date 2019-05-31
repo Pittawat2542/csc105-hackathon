@@ -1,0 +1,35 @@
+footer {
+    background-color: black;
+}
+
+.bg-black {
+    background-color: #2d3436 !important;
+}
+
+.bg-primary-blue {
+    background-color: #0abde3 !important;
+}
+
+.bg-primary-orange {
+    background-color: #f39c12 !important;
+}
+
+.bg-white {
+    background-color: #ecf0f1 !important;
+}
+
+.text-black {
+    color: #2d3436 !important;
+}
+
+.text-primary-blue {
+    color: #0abde3 !important;
+}
+
+.text-primary-orange {
+    color: #f39c12 !important;
+}
+
+.text-white {
+    color: #ecf0f1 !important;
+}

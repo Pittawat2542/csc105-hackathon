@@ -1,7 +1,6 @@
-@extends('layouts.demo-template')
+@extends('layouts.main')
 
 @section('content')
-    @include('components.navbar')
     <section>
 
     </section>
