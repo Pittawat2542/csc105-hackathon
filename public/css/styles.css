@@ -40,10 +40,12 @@ footer {
     max-width: 10%;
 }
 
-/*report submiting page*/
-.wide-select{
+/* Select ELement */
+
+.wide-select {
     width: 90%;
 }
-/*.wide-select > .wide-select {*/
-/*    width: 70%;*/
-/*}*/
+
+.full-select {
+    width: 100%;
+}

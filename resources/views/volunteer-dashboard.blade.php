@@ -3,7 +3,7 @@
 @section('content')
     <section>
         <div class="container my-3 bg-white">
-            <div class="row">
+            <div class="row mb-3 mb-md-0">
                 <div class="mr-auto"></div>
                 <ul class="nav">
                     <li class="nav-item">
@@ -26,24 +26,79 @@
                 </div>
             </div>
             <hr>
-            <div class="row">
+            <h3 class="font-weight-bold">Interested</h3>
+            <div class="row mx-1">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="col-md-5 col-sm-12">
+                            <img class="img-fluid"
+                                 src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
+                                 alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-12">
+                            <h4 class="font-weight-bold">Description</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid atque
+                                beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia nam
+                                officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
+                            <form action="" class="mt-3">
+                                @csrf
+                                <button class="btn btn-success btn-block btn-round" type="submit"><i
+                                        class="fas fa-tools"></i> Fixed
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row d-flex align-items-center">
                 <h4>Category:</h4>
                 <div class="col">
-                    <select name="" id="" class="wide-select">
+                    <select name="" id="" class="full-select">
                         <option value="">TEST</option>
                         <option value="">TEST</option>
                         <option value="">TEST</option>
                     </select>
                 </div>
             </div>
-            <div class="row">
-
-            </div>
+            @for($i = 0; $i < 10; $i++)
+                <div class="row mx-1">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-md-4 col-sm-12">
+                                <img class="img-fluid"
+                                     src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
+                                     alt="">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4 class="font-weight-bold">Description</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid atque
+                                    beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia nam
+                                    officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
+                            </div>
+                            <div class="col-md-2 col-sm-12 d-flex flex-column justify-content-center">
+                                <form action="">
+                                    @csrf
+                                    <button class="btn btn-success btn-block btn-round" type="submit"><i
+                                            class="fas fa-tools"></i> Fixed
+                                    </button>
+                                </form>
+                                <form action="">
+                                    @csrf
+                                    <button class="btn btn-danger btn-block btn-round" type="submit"><i
+                                            class="fas fa-heart"></i> Interest
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endfor
         </div>
     </section>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('select').niceSelect();
         });
     </script>
