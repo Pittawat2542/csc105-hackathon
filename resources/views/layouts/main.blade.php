@@ -40,7 +40,7 @@
 <script src="/assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
 <!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<script src="/assets/js/jquery.nice-select.min.js"></script>
+<script src="/js/jquery.nice-select.min.js"></script>
 <script src="/js/scripts.js"></script>
 </body>
 </html>
