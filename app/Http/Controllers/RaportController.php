@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\RequestRaport;
 use App\Photo;
 use App\Raport;
 use Illuminate\Http\Request;
@@ -18,8 +19,6 @@ class RaportController extends Controller
      */
     public function index()
     {
-        $circle_radius = 3959;
-        $max_distance = 20;
         if((Session::get('userLat')!=null) | (Session::get('userLng')!=null)) {
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
@@ -56,7 +55,7 @@ class RaportController extends Controller
         $data['lat'] = Session::get('userLat');
         $photo = new Photo();
         if($file = $request->file('photo')){
-           $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', 1);
+           $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
         }
         Raport::create($data);
         return redirect('/');
@@ -70,7 +69,7 @@ class RaportController extends Controller
      */
     public function show($id)
     {
-        return view('raport.show', ['raport'=>Raport::findOrFail($id)]);
+        return view('fixed-report', ['raport'=>Raport::findOrFail($id)]);
     }
 
     /**
@@ -90,10 +89,15 @@ class RaportController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function fixed($id) {
-        $raport = Raport::findOrFail($id);
-        $raport['user_id'] = Auth::user()->id;
-        $raport->save();
+    public function fixed(Request $request) {
+        $raport = Raport::findOrFail($request->id);
+        $requestRaport['user_id'] = Auth::user()->id;
+        $raport->update($requestRaport);
+        $photo = new Photo();
+        if($file = $request->file('photo')){
+            $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', $request->id, Auth::user()->id);
+        }
+        return redirect('/');
     }
     /**
      * Update the specified resource in storage.

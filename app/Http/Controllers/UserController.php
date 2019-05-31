@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Raport;
 
 use Illuminate\Http\Request;
@@ -13,6 +14,19 @@ class UserController extends Controller
     public function index()
     {
         return view('user-dashboard', ['raports'=>Raport::where('user_id', '=', Auth::user()->id)->get()]);
+    }
+
+    public function volunteer() {
+        if((Session::get('userLat')!=null) | (Session::get('userLng')!=null)) {
+            $lat = str_replace(',', '.', Session::get('userLat'));
+            $lng = str_replace(',', '.', Session::get('userLng'));
+            $query = Raport::distance($lat, $lng);
+            $raportsAround  = $query->orderBy('distance', 'DESC')->get();
+
+        } else {
+            $raportsAround = Raport::all();
+        }
+        return view('volunteer-dashboard', ['raports'=>$raportsAround, 'categories'=>Category::all()]);
     }
 
     public function getGeo(Request $request) {

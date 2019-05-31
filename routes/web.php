@@ -22,7 +22,8 @@ Route::get('/', 'RaportController@index');
 
 Route::group(['middleware'=>'auth'], function() {
 
-    Route::get('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
+    Route::post('/raport/fixed', 'RaportController@fixed')->name('fixed.raport');
+
     Route::resource('/report', 'RaportController', ['names'=>[
         'index' => 'index.raport',
         'create' => 'create.raport',
@@ -31,6 +32,9 @@ Route::group(['middleware'=>'auth'], function() {
     ]);
 
     Route::get('/user', 'UserController@index');
+
+    Route::get('/volunteer', 'UserController@volunteer')->name('volunteer.index');
+
 });
 
 
@@ -43,10 +47,6 @@ Route::get('/rank', function() {
 
 Route::get("/dashboard/admin", function() {
     return view("dashboard-admin");
-});
-
-Route::get('/volunteer', function() {
-    return view('volunteer-dashboard');
 });
 
 

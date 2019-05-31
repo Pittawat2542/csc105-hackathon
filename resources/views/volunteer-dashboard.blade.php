@@ -19,7 +19,7 @@
                     <img class="rounded-circle" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User picture">
                 </div>
                 <div class="col-md-10">
-                    <h2>Scott Martin</h2>
+                    <h2>{{Auth::user()->name}}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cumque deleniti dolore doloremque
                         eius eos, eveniet facilis fugiat, impedit ipsa nesciunt nostrum quis ratione rerum similique
                         totam veritatis voluptas! Magni.</p>
@@ -55,45 +55,47 @@
                 <h4>Category:</h4>
                 <div class="col">
                     <select name="" id="" class="full-select">
-                        <option value="">TEST</option>
-                        <option value="">TEST</option>
-                        <option value="">TEST</option>
+                        @if($categories)
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </div>
-            @for($i = 0; $i < 10; $i++)
-                <div class="row mx-1">
-                    <div class="card">
-                        <div class="card-body row">
-                            <div class="col-md-4 col-sm-12">
-                                <img class="img-fluid"
-                                     src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
-                                     alt="">
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4 class="font-weight-bold">Description</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid atque
-                                    beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia nam
-                                    officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
-                            </div>
-                            <div class="col-md-2 col-sm-12 d-flex flex-column justify-content-center">
-                                <form action="">
-                                    @csrf
-                                    <button class="btn btn-success btn-block btn-round" type="submit"><i
-                                            class="fas fa-tools"></i> Fixed
-                                    </button>
-                                </form>
-                                <form action="">
-                                    @csrf
-                                    <button class="btn btn-danger btn-block btn-round" type="submit"><i
-                                            class="fas fa-heart"></i> Interest
-                                    </button>
-                                </form>
+                @if($raports)
+                    @foreach($raports as $raport)
+                    <div class="row mx-1">
+                        <div class="card">
+                            <div class="card-body row">
+                                <div class="col-md-4 col-sm-12">
+                                    <img class="img-fluid"
+                                         src="{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}"
+                                         alt="">
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <h4 class="font-weight-bold">Description</h4>
+                                    <p>{{$raport->body}}</p>
+                                </div>
+                                <div class="col-md-2 col-sm-12 d-flex flex-column justify-content-center">
+                                    <form action="{{route('report.show', $raport->id)}}">
+                                        @csrf
+                                        <button class="btn btn-success btn-block btn-round" type="submit"><i
+                                                class="fas fa-tools"></i> Fixed
+                                        </button>
+                                    </form>
+                                    <form action="">
+                                        @csrf
+                                        <button class="btn btn-danger btn-block btn-round" type="submit"><i
+                                                class="fas fa-heart"></i> Interest
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endfor
+                @endforeach
+            @endif
         </div>
     </section>
 

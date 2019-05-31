@@ -14,7 +14,7 @@ class Photo extends Model
      * @return string
      */
     public function getPathAttribute($photo) {
-        return $this->upload . $photo;
+        return '/'.$this->upload . $photo;
     }
 
     /**
