@@ -22,8 +22,8 @@ class RaportController extends Controller
     {
         $circle_radius = 3959;
         $max_distance = 20;
-        $lat = Session::pull('userLat');
-        $lng = Session::pull('userLng');
+        $lat = str_replace(',','.', Session::pull('userLat'));
+        $lng = str_replace(',','.', Session::pull('userLng'));
 
          $raportsAround = DB::select(
              'SELECT * FROM
@@ -37,7 +37,7 @@ class RaportController extends Controller
                         OFFSET 0
                         LIMIT 20;
                     ');
-         return view('home', ['raports'=>$raportsAround]);
+         return view('user-dashboard', ['raports'=>$raportsAround]);
     }
 
     /**

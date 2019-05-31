@@ -23,7 +23,7 @@
 
                 @auth
                         <li class="nav-item">
-                            <a href="/user" class="nav-link">Welcome, {{ Auth::user()->name }}</a>
+                            <a href="{{Route('index.raport')}}" class="nav-link">Welcome, {{ Auth::user()->name }}</a>
                         </li>
                         @if(Auth::user()->isAdmin())
                             <li class="nav-item">
