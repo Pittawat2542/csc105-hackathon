@@ -61,3 +61,7 @@ Route::get('/fakereg',function() {
     ]);
     return redirect('/');
 });
+
+Route::get('/fixed', function() {
+    return view('fixed-report');
+});

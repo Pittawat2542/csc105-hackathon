@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    @include('logo')
     <div class="container d-board my-4">
         <div class="row py-3">
             <div class="col-12 col-md-auto d-flex justify-content-center align-items-center">
