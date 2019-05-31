@@ -11,11 +11,15 @@
 |
 */
 
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
-
-Auth::routes();
 
 Route::group(['middleware'=>'auth'], function() {
 
@@ -46,6 +50,26 @@ Route::get('/rank', function() {
     return view('volunteer-ranking');
 });
 
+Route::get("/dashboard/admin", function() {
+    return view("dashboard-admin");
+});
+
 Route::get("/demo", function() {
     return view("material-demo");
+});
+
+Route::get('/fakereg',function() {
+    $faker = Faker\Factory::create();
+    $faker->locale('th_TH');
+    User::create([
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        'remember_token' => Str::random(10),
+    ]);
+    return 5555;
+});
+
+Route::get('/user', function() {
+    return view('user-dashboard');
 });

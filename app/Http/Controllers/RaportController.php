@@ -6,6 +6,7 @@ use App\Http\Requests\RequestRaport;
 use App\Raport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RaportController extends Controller
 {
@@ -16,7 +17,24 @@ class RaportController extends Controller
      */
     public function index()
     {
-//        return view('index')
+        $circle_radius = 3959;
+        $max_distance = 20;
+        $lat = Session::pull('userLat');
+        $lng = Session::pull('userLng');
+
+         $raportsAround = DB::select(
+             'SELECT * FROM
+                            (SELECT id, photo_id, title, body, lat, lng, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(lat)) *
+                            cos(radians(lng) - radians(' . $lng . ')) +
+                            sin(radians(' . $lat . ')) * sin(radians(lat))))
+                            AS distance
+                            FROM raports) AS distances
+                        WHERE distance < ' . $max_distance . '
+                        ORDER BY distance
+                        OFFSET 0
+                        LIMIT 20;
+                    ');
+         return view('home', ['raports'=>$raportsAround]);
     }
 
     /**
