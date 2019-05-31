@@ -21,7 +21,7 @@
                             <option data-display="Select">Nothing</option>
                             @if($categories)
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{$category->id}}"><i class="{{$category->icon}}"></i> {{$category->name}}</option>
                                 @endforeach
                             @endif
                         </select>
