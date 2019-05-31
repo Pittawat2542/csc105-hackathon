@@ -50,10 +50,9 @@
                 url:'/getgeo',
                 data:{latitude:lat,longitude:lng,_method: 'GET'},
                 type: "POST",
-
                 success:function(data)
                 {
-                    alert('success');
+
                 }
 
             });
