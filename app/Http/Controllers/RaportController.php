@@ -22,10 +22,10 @@ class RaportController extends Controller
     {
         $circle_radius = 3959;
         $max_distance = 20;
-        $lat = str_replace(',','.', Session::get('userLat'));
-        $lng = str_replace(',','.', Session::get('userLng'));
-         $raportsAround = DB::raw(
-             'SELECT * FROM
+        if((Session::get('userLat')!=null) | (Session::get('userLng')!=null)) {
+            $lat = str_replace(',', '.', Session::get('userLat'));
+            $lng = str_replace(',', '.', Session::get('userLng'));
+            $raportsAround = DB::raw('SELECT * FROM
                             (SELECT id, photo_id, title, body, lat, lng, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(lat)) *
                             cos(radians(lng) - radians(' . $lng . ')) +
                             sin(radians(' . $lat . ')) * sin(radians(lat))))
@@ -36,7 +36,10 @@ class RaportController extends Controller
                         OFFSET 0
                         LIMIT 20;
                     ');
-         return view('user-dashboard', ['raports'=>$raportsAround]);
+        } else {
+            $raportsAround = Raport::all();
+        }
+        return view('index', ['raports'=>$raportsAround]);
     }
 
     /**
