@@ -6,6 +6,7 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+                    <i class="fas fa-check"></i>
                     Material Kit </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"

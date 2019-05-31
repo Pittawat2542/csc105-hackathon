@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get("/demo", function() {
+    return view("material-demo");
+});
+
 Route::group(['middleware'=>'auth'], function() {
 
     Route::get('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
