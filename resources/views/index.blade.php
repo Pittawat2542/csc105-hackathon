@@ -31,37 +31,28 @@
                                          src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
                                          alt="">
                                 </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <h4 class="font-weight-bold">Description</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid atque
-                                        beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia nam
-                                        officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
-                                </div>
-                                <div class="col-md-2 col-sm-12 d-flex flex-column justify-content-center">
-                                    <form action="">
-                                        @csrf
-                                        <button class="btn btn-success btn-block btn-round" type="submit"><i
-                                                class="fas fa-tools"></i> Fixed
-                                        </button>
-                                    </form>
-                                    <form action="">
-                                        @csrf
-                                        <button class="btn btn-danger btn-block btn-round" type="submit"><i
-                                                class="fas fa-heart"></i> Interest
-                                        </button>
-                                    </form>
+                                <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
+                                    <div>
+                                        <h4 class="font-weight-bold">Description</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid
+                                            atque
+                                            beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia
+                                            nam
+                                            officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
+                                    </div>
+                                    <h5><span class="font-weight-bold">0.01km</span> from your location.</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endfor
             </div>
-            </div>
         </div>
-        <div class="row">
-            <div id="map" class="col mb-5">
-            </div>
+    </div>
+    <div class="row">
+        <div id="map" class="col mb-5">
         </div>
+    </div>
     </div>
 
     <script>
@@ -75,7 +66,7 @@
 
                 $.ajax({
                     url: '/getgeo',
-                    data: {latitude:  lat, longitude: lng, _method: 'GET'},
+                    data: {latitude: lat, longitude: lng, _method: 'GET'},
                     type: "POST",
 
                     success: function (data) {
@@ -88,6 +79,7 @@
         var locationObj = {lat: parseFloat(lat), lng: parseFloat(lng)};
 
         var map, infoWindow;
+
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: -34.397, lng: 150.644},
@@ -97,7 +89,7 @@
 
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
+                navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
@@ -107,7 +99,7 @@
                     infoWindow.setContent('Location found.');
                     infoWindow.open(map);
                     map.setCenter(pos);
-                }, function() {
+                }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
             } else {
