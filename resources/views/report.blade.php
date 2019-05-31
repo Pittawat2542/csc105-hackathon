@@ -11,11 +11,15 @@
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
         <div class="row mx-0 justify-content-center mt-3">
+            @foreach($categories as $category)
+                {!! Form::select('category', $category, null, ['class' => 'wide-select']) !!}
+            @endforeach
+
             <select class="wide-select">
                 <option data-display="Select">Nothing</option>
                 @if($categories)
                     @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{$category['id']}}">{{$category['name']}}</option>
                         <option value="2">Another option</option>
                         <option value="3" disabled>A disabled option</option>
                         <option value="4">Potato</option>
