@@ -30,8 +30,21 @@ footer {
     color: #f39c12 !important;
 }
 
+.text-green {
+    color: #2ecc71 !important;
+}
+
 .text-white {
     color: #ecf0f1 !important;
+}
+
+#logo {
+    width: 20rem;
+    height: 16rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url('/img/app-logo-noframe.png');
 }
 
 /* Navigation bar */
@@ -40,7 +53,7 @@ footer {
     max-width: 10%;
 }
 
-/* Select ELement */
+/* Select Element */
 
 .wide-select {
     width: 90%;
@@ -50,10 +63,6 @@ footer {
     width: 100%;
 }
 
-.full-select ~ .nice-select .list {
+.nice-select .list {
     width: 100%;
-}
-
-.wide-select ~ .nice-select .list {
-    width: 90%;
 }

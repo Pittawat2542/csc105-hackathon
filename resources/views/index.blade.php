@@ -10,9 +10,9 @@
         <div class="row">
             <div id="category" class="col">
                 <div class="row d-flex align-items-center">
-                    <h4>Category:</h4>
+                    <h4 class="ml-3 ml-md-0 font-weight-bold"><i class="fas fa-caret-square-down"></i> Category:</h4>
                     <div class="col">
-                        <select name="" id="" class="full-select">
+                        <select class="full-select">
                             <option data-display="Select">Nothing</option>
                             @if($categories)
                                 @foreach($categories as $category)
@@ -33,14 +33,14 @@
                                 </div>
                                 <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
-                                        <h4 class="font-weight-bold">Description</h4>
+                                        <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description</h4>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid
                                             atque
                                             beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia
                                             nam
                                             officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
                                     </div>
-                                    <h5><span class="font-weight-bold">0.01km</span> from your location.</h5>
+                                    <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">1.23km</span> <span style="font-size: 80%;">from your location.</span></h5>
                                 </div>
                             </div>
                         </div>

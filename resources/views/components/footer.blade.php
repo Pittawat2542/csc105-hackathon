@@ -3,7 +3,7 @@
         <div class="row">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-left">
-                    <h4 class="font-weight-bold text-primary-orange">About BuranaArsa</h4>
+                    <h4 class="font-weight-bold text-primary-orange"><i class="fas fa-users"></i> About BuranaArsa</h4>
                     <p class="text-white">Our platform intend to be a spoker for people to complain or report about
                         general problem in the
                         cities that they encountered. We work with many volunteers and intend to be help them easier to
@@ -11,7 +11,7 @@
                         the works that they want.</p>
                 </div>
                 <div class="col-md-6 col-sm-12 text-left">
-                    <h4 class="font-weight-bold text-primary-orange">Contact Us</h4>
+                    <h4 class="font-weight-bold text-primary-orange"><i class="fas fa-phone-square"></i> Contact Us</h4>
                     <p class="text-white"><span class="font-weight-bold text-white">Tel:</span> 012-3456-789</p>
                     <p class="text-white"><span class="font-weight-bold text-white">Email:</span> info@buranaarsa.com
                     </p>
