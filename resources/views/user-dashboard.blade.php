@@ -4,34 +4,33 @@
     @include('logo')
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12"><span class="font-weight-bold"><i class="far fa-clock"></i> Total hours:</span> 1000</div>
-            <div class="col-md-6 col-sm-12 text-right"><span class="font-weight-bold"><i class="fas fa-user"></i> John Doe</span> has
+            <div class="col-md-6 col-sm-12"><span class="font-weight-bold"><i class="far fa-clock"></i> Total points:</span> {{$raports->count()}}</div>
+            <div class="col-md-6 col-sm-12 text-right"><span class="font-weight-bold"><i class="fas fa-user"></i> {{Auth::user()->name}}</span> has
                 fixed :
             </div>
         </div>
     </div>
     <div class="container">
-        @for($i = 0; $i < 5; $i++)
-            <div class="row">
-                <div class="card">
-                    <div class="card-body row">
-                        <div class="col-md-4 col-sm-12">
-                            <img class="img-fluid"
-                                 src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
-                                 alt="">
-                        </div>
-                        <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid
-                                    atque
-                                    beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia
-                                    nam
-                                    officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
+        @if($raports)
+            @foreach($raports as $raport)
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-md-4 col-sm-12">
+                                <img class="img-fluid"
+                                     src="{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}"
+                                     alt="">
+                            </div>
+                            <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
+                                <div>
+                                    <p>{{$raport->body}}</p>
+                                    Location: {{$raport->lat}}, {{$raport->lng}} | Added {{$raport->created_at}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endfor
+            @endforeach
+        @endif
     </div>
 @endsection
