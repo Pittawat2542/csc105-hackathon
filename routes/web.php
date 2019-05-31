@@ -36,20 +36,12 @@ Route::get('/getgeo', 'UserController@getGeo');
 
 /* Front-end routes */
 
-Route::get('/landingpage', function() {
-    return view('landing-page');
-});
-
 Route::get('/rank', function() {
     return view('volunteer-ranking');
 });
 
 Route::get("/dashboard/admin", function() {
     return view("dashboard-admin");
-});
-
-Route::get("/demo", function() {
-    return view("material-demo");
 });
 
 Route::get('/fakereg',function() {
