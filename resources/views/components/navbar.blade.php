@@ -14,10 +14,10 @@
             <ul class="navbar-nav">
                 @guest
                     <li class="nav-item">
-                        <a href="/register" class="nav-link">Register</a>
+                        <a href="/register" class="nav-link"><i class="far fa-edit"></i> Register</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</a>
+                        <a href="/login" class="nav-link"><i class="fas fa-key"></i> Login</a>
                     </li>
                 @endguest
 
