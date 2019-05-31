@@ -36,6 +36,7 @@ class FacebookController extends Controller
 
     public function handleFacebookCallback()
     {
+        echo "Yeahh!";
         try {
             $user = Socialite::driver('facebook')->user();
             $create['name'] = $user->getName();
@@ -46,10 +47,10 @@ class FacebookController extends Controller
             $createdUser = $userModel->addNew($create);
             Auth::loginUsingId($createdUser->id);
 
-            return redirect()->route('home');
+            return view('welcome');
 
         } catch (Exception $e) {
-            return redirect('auth/facebook');
+            return redirect('/auth/facebook');
         }
     }
 }
