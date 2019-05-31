@@ -1,6 +1,6 @@
 <div class="container mt-3 blabla">
     <div class="row justify-content-center">
-        <div id="logo" class="col-auto" style="background-image: url('img/app-logo-noframe.png');">
+        <div id="logo" class="col-auto" style="background-image: url('/img/app-logo-noframe.png');">
         </div>
     </div>
 </div>
