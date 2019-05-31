@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\RequestRaport;
+use App\Photo;
 use App\Raport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class RaportController extends Controller
@@ -44,7 +47,7 @@ class RaportController extends Controller
      */
     public function create()
     {
-        return view('raport.create', ['categories'=>Categories::pluck('id', 'name')]);
+        return view('report', ['categories'=>Category::pluck('id', 'name')]);
     }
 
     /**
@@ -55,11 +58,15 @@ class RaportController extends Controller
      */
     public function store(Request $request)
     {
-        //save picture and get id of it;
-        $data = $request;
-        $data['user_id'] = Auth::user()->id;
-        Raport::create($request);
 
+        $data = $request->except('user_id');
+        $data['user_id'] = Auth::user()->id;
+        $photo = new Photo();
+        if($file = $request->file('photo')){
+           $data['photo_id'] = $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
+        }
+        Raport::create($data)->id;
+        return redirect('/');
     }
 
     /**

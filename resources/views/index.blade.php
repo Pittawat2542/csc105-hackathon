@@ -4,10 +4,7 @@
     @include('logo')
     <div class="container">
         <div class="row justify-content-center">
-            <a class="col-auto btn btn-danger btn-raised my-3" style="font-size: 1rem;"
-               href="{{ Auth::guest()?url('login'):url('report') }}">
-                REPORT
-            </a>
+            <a class="col-auto btn btn-danger btn-raised my-3" style="font-size: 1rem;" href="{{ route('create.raport') }}">
         </div>
         <div class="row">
             <div id="category" class="col">

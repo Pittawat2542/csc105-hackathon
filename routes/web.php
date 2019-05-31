@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::group(['middleware'=>'auth'], function() {
 
     Route::get('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
-    Route::resource('raport', 'RaportController', ['names'=>[
+    Route::resource('/report', 'RaportController', ['names'=>[
         'index' => 'index.raport',
         'create' => 'create.raport',
         'store' => 'store.raport',
@@ -40,10 +40,6 @@ Route::get('/getgeo', 'UserController@getGeo');
 
 Route::get('/landingpage', function() {
     return view('landing-page');
-});
-
-Route::get('/report', function() {
-    return view('report');
 });
 
 Route::get('/rank', function() {
@@ -67,7 +63,7 @@ Route::get('/fakereg',function() {
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         'remember_token' => Str::random(10),
     ]);
-    return 5555;
+    return redirect('/');
 });
 
 Route::get('/user', function() {

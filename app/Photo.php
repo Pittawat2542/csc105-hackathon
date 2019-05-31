@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     protected $uploadPath = 'storage/uploads/images/';
-    protected $fillable = ['path', 'report_id', 'user_id'];
+    protected $fillable = ['path', 'raport_id', 'user_id'];
 
     /**
      * @param $photo
@@ -25,7 +25,7 @@ class Photo extends Model
      * @param $user_id
      * @return mixed
      */
-    public function uploadPhoto($file, $newName, $report_id, $user_id) {
+    public function uploadPhoto($file, $newName, $raport_id, $user_id) {
         $name = uniqid($newName) . '.' . $file->getClientOriginalExtension();
 
         $file->move($this->uploadPath, $name);
@@ -35,7 +35,7 @@ class Photo extends Model
 
         $photo = Photo::create([
             'path' => $name,
-            'report_id' => $report_id,
+            'raport_id' => $raport_id,
             'user_id' => $user_id
         ]);
 
