@@ -69,3 +69,7 @@ Route::get('/fakereg',function() {
 Route::get('/user', function() {
     return view('user-dashboard');
 });
+
+Route::get('/volunteer', function() {
+    return view('volunteer-dashboard');
+});
