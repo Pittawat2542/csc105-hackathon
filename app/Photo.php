@@ -59,4 +59,8 @@ class Photo extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    public function raport() {
+        return $this->belongsTo('App\Raport');
+    }
 }
