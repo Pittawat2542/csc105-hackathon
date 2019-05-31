@@ -35,7 +35,7 @@ class RaportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestRaport $request)
+    public function store(Request $request)
     {
         //save picture and get id of it;
         $data = $request;
