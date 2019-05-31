@@ -17,9 +17,7 @@ use Illuminate\Support\Str;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'RaportController@index');
 
 Route::group(['middleware'=>'auth'], function() {
 

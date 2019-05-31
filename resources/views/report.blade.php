@@ -31,24 +31,24 @@
 
         </div>
     </form>
-    <script>
-        document.querySelector('#images').addEventListener('change', function() {
-            console.log(this.files)
-            text = document.querySelector('#countFiles')
-            if (this.files && this.files.length) {
-                if (this.files.length == 1) {
-                    text.innerHTML = '1 file'
-                } else {
-                    text.innerHTML = `${this.files.length} files`
-                }
-            } else {
-                text.innerHTML = 'No file chosen'
-            } 
-        })
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('select').niceSelect();
-        });
-    </script>
+{{--    <script>--}}
+{{--        document.querySelector('#images').addEventListener('change', function() {--}}
+{{--            console.log(this.files)--}}
+{{--            text = document.querySelector('#countFiles')--}}
+{{--            if (this.files && this.files.length) {--}}
+{{--                if (this.files.length == 1) {--}}
+{{--                    text.innerHTML = '1 file'--}}
+{{--                } else {--}}
+{{--                    text.innerHTML = `${this.files.length} files`--}}
+{{--                }--}}
+{{--            } else {--}}
+{{--                text.innerHTML = 'No file chosen'--}}
+{{--            } --}}
+{{--        })--}}
+{{--    </script>--}}
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
+{{--            $('select').niceSelect();--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection

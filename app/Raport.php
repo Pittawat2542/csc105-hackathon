@@ -46,5 +46,4 @@ class Raport extends Model
             return $d;
         }
 
-
 }
