@@ -39,7 +39,32 @@
 <script src="/assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
 <!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<<<<<<< HEAD
+<script>
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position);
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            $.ajax({
+                url:'/getgeo',
+                data:{latitude:lat,longitude:lng,_method: 'GET'},
+                type: "POST",
+
+                success:function(data)
+                {
+                    alert('success');
+                }
+
+            });
+        });
+    }
+
+</script>
+=======
 <script src="/assets/js/jquery.nice-select.min.js"></script>
 <script src="/js/scripts.js"></script>
+>>>>>>> e3f407da8f191693dfcd820fe1dd0555b7b207db
 </body>
 </html>
