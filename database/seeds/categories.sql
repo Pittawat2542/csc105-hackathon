@@ -1,4 +1,4 @@
-INSERT INTO categories (`name`, 'icon')  VALUES
+INSERT INTO categories (`name`, `icon`)  VALUES
 ('Dangerous substances', 'fas fa-biohazard'),
 ('Garbage issues', 'fas fa-dumpster'),
 ('Request to repair, change, add electrical wires and light bulb', 'fas fa-wrench'),

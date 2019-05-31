@@ -13,10 +13,14 @@
         <div class="row mx-0 justify-content-center mt-3">
             <select class="wide-select">
                 <option data-display="Select">Nothing</option>
-                <option value="1">Some option</option>
-                <option value="2">Another option</option>
-                <option value="3" disabled>A disabled option</option>
-                <option value="4">Potato</option>
+                @if($categories)
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="2">Another option</option>
+                        <option value="3" disabled>A disabled option</option>
+                        <option value="4">Potato</option>
+                    @endforeach
+                @endif
             </select>
         </div>
         <div class="row mx-0 mt-4">
