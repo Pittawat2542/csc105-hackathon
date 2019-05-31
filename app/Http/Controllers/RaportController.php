@@ -39,7 +39,7 @@ class RaportController extends Controller
         } else {
             $raportsAround = Raport::all();
         }
-        return view('index', ['raports'=>$raportsAround]);
+        return view('index', ['raports'=>$raportsAround, 'categories'=>Category::all()]);
     }
 
     /**
