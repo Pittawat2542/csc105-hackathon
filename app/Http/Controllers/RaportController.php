@@ -22,16 +22,15 @@ class RaportController extends Controller
     {
         $circle_radius = 3959;
         $max_distance = 20;
-        $lat = str_replace(',','.', Session::pull('userLat'));
-        $lng = str_replace(',','.', Session::pull('userLng'));
-
-         $raportsAround = DB::select(
+        $lat = str_replace(',','.', Session::get('userLat'));
+        $lng = str_replace(',','.', Session::get('userLng'));
+         $raportsAround = DB::raw(
              'SELECT * FROM
                             (SELECT id, photo_id, title, body, lat, lng, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(lat)) *
                             cos(radians(lng) - radians(' . $lng . ')) +
                             sin(radians(' . $lat . ')) * sin(radians(lat))))
                             AS distance
-                            FROM raports) AS distances
+                            FROM `raports`) AS distances
                         WHERE distance < ' . $max_distance . '
                         ORDER BY distance
                         OFFSET 0
