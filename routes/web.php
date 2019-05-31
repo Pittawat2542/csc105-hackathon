@@ -50,6 +50,10 @@ Route::get('/rank', function() {
     return view('volunteer-ranking');
 });
 
+Route::get("/dashboard/admin", function() {
+    return view("dashboard-admin");
+});
+
 Route::get("/demo", function() {
     return view("material-demo");
 });
