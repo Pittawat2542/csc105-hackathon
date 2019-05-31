@@ -2,7 +2,7 @@ INSERT INTO categories (`name`)  VALUES
 ('Remove the old car wreck'),
 ('Ask to dredge the drain.'),
 ('Products that may be dangerous'),
-'Garbage dropped'
+('Garbage dropped'),
 'Garbage smelly'
 'Insufficient waste tank'
 'Request to repair, change, add electrical wires and Light bulb'
