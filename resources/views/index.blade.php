@@ -29,7 +29,7 @@
                                 <div class="card-body row">
                                     <div class="col-md-4 col-sm-12">
                                         <img class="img-fluid"
-                                             src="{{$raport->photo ? $raport->photo->path : ''}}"
+                                             src="{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}"
                                              alt="">
                                     </div>
                                     <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
