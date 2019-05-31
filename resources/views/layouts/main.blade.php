@@ -49,9 +49,8 @@
 
             $.ajax({
                 url:'/getgeo',
-                type:'get',
-                data:{latitude:lat,longitude:lng},
-
+                data:{latitude:lat,longitude:lng,_method: 'GET'},
+                type: "POST",
 
                 success:function(data)
                 {

@@ -11,16 +11,8 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
     public function getGeo(Request $request) {
-        $data['lat'] = $request->lat;
-        $data['lng'] = $request->lng;
-        if(Auth::user()) {
-            $user = User::findOrFail(Auth::user()->id);
-            $user->update($data);
-        }
-
-        Session::put('userLat', $request->lat);
-        Session::put('userLng', $request->lat);
-        dd(session()->all());
-        return "updated location". session()->get('userLat');
+        Session::put('userLat', $request->latitude);
+        Session::put('userLng', $request->longitude);
+        return "updated location". Session::pull('userLat').','.Session::pull('userLng');
     }
 }
