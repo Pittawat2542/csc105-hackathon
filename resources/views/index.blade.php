@@ -62,27 +62,32 @@
     </div>
 
     <script>
-        var lat;
-        var lng;
 
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                lat = position.coords.latitude;
-                lng = position.coords.longitude;
+        var apiGeolocationSuccess = function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
 
-                $.ajax({
-                    url: '/getgeo',
-                    data: {latitude: lat, longitude: lng, _method: 'GET'},
-                    type: "POST",
+            $.ajax({
+                url: '/getgeo',
+                data: {latitude: lat, longitude: lng, _method: 'GET'},
+                type: "POST",
+                success: function (data) {
+                    console.log({lat: lat, lng: lng});
+                }
 
-                    success: function (data) {
-                    }
-
-                });
             });
-        }
+        };
 
-        var locationObj = {lat: parseFloat(lat), lng: parseFloat(lng)};
+        var tryAPIGeolocation = function () {
+            $.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyB5pqlf37NqcN8xW6-FW2pbFEgpZ7ssTIk", function (success) {
+                apiGeolocationSuccess({coords: {latitude: success.location.lat, longitude: success.location.lng}});
+            })
+                .fail(function (err) {
+                    // alert("API Geolocation error! \n\n" + err);
+                });
+        };
+
+        tryAPIGeolocation();
 
         function initMap() {
             var lat_collection = [
@@ -119,7 +124,7 @@
                     google.maps.event.addListener(marker, "click", function () {
 
                         infowindow.setContent("<div class='text-center'>" +
-                            "<img src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                            "<img style='max-height: 5rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                             "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
                         infowindow.open(map, this)
                     });

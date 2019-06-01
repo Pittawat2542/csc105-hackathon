@@ -16,6 +16,7 @@
     <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
+
 @include('components.navbar')
 
 @yield('content')
@@ -44,7 +45,6 @@
 <script src="/js/jquery.nice-select.min.js"></script>
 <script src="/js/scripts.js"></script>
 @if (\Request::is('report'))
-
 @else
     <script src="/js/redirect-to-category.js"></script>
 @endif
