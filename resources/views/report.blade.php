@@ -22,7 +22,7 @@
         </div>
         <div class="row mx-0 mt-4">
             <div class="col form-group p-4">
-                <label for="description" class="ml-4"><i class="fas fa-pencil-alt"></i> Description</label>
+                <label for="description" class="ml-4 text-primary-orange"><i class="fas fa-pencil-alt"></i> Description</label>
                 <textarea id="description" class="form-control" rows="4" name="body"></textarea>
             </div>
         </div>
