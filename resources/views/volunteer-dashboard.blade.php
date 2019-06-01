@@ -26,7 +26,7 @@
                 </div>
             </div>
             <hr>
-            <h3 class="font-weight-bold">Potentials</h3>
+            <h3 class="font-weight-bold"><i class="fas fa-star"></i> Potentials</h3>
             @if($wishlists)
                 @foreach($wishlists as $wishlist)
                     <div class="row mx-1">
@@ -38,7 +38,7 @@
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
-                                    <h4><span class="font-weight-bold">Categotry</span> {{$wishlist->raport()->category()->category}}</h4>
+                                    <h4><span class="font-weight-bold">Categotry</span> {{$wishlist->raport->category->category}}</h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
