@@ -13,7 +13,6 @@
 
 use App\User;
 use Faker\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 Auth::routes();
@@ -40,14 +39,11 @@ Route::group(['middleware'=>'auth'], function() {
 Route::get('/getgeo', 'UserController@getGeo');
 /* Front-end routes */
 
-Route::get('/rank', function() {
-    return view('volunteer-ranking');
-});
+Route::get('/rank', 'UserController@rank')->name('rank');
 
 Route::get("/dashboard/admin", function() {
     return view("dashboard-admin");
 });
-
 
 Route::get('/fakereg',function() {
     $faker = Faker\Factory::create();

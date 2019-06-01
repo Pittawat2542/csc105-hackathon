@@ -5,7 +5,7 @@
     <div class="container text-center" id="volunteerList">
         <h1><i class="fas fa-trophy position-static text-primary-orange"></i> Top Volunteers <i
                 class="fas fa-trophy position-static text-primary-orange"></i></h1>
-        @for($i=0; $i<5; $i++)
+        @foreach($ranks as $rank)
             <div class="card">
                 <div class="card-footer">
                     <div class="mr-5 ml-3">
@@ -14,12 +14,12 @@
                         <h4 class="d-hidden card-h4" id="first"></h4>
                     </div>
                     <div class="text-left">
-                        <p class="h3 mt-0 font-weight-bold">John Doe</p>
-                        <p class="h4"><span class="font-weight-bold">Volunteer Point:</span>1000</p>
+                        <p class="h3 mt-0 font-weight-bold">{{$rank['user']->name}}</p>
+                        <p class="h4"><span class="font-weight-bold">Volunteer Point:</span>{{$rank['value']}}</p>
                     </div>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
 
     <script>
