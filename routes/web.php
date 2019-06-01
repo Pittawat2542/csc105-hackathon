@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get("/raport/fixed/thank", "RaportController@thanks");
 
-    Route::post('/raport/fixed', 'RaportController@fixed')->name('fixed.raport');
+    Route::post('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
 
     Route::resource('/report', 'RaportController', ['names' => [
         'index' => 'index.raport',

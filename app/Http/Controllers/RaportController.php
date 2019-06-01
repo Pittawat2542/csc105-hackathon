@@ -100,7 +100,7 @@ class RaportController extends Controller
             $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', $request->id, Auth::user()->id);
         }
 
-        return redirect('/raport/fixed/thank');
+        return redirect('/fixed-thank');
     }
 
     public function thank()
