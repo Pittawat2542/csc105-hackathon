@@ -11,14 +11,17 @@
                 </div>
             </div>
             <div class="row">
-                <h4><span class="font-weight-bold">Category:</span> {{$raport->category->name}} </h4>
-                <p><span class="font-weight-bold">Description:</span> {{$raport->body}}</p>
+                <h4><span class="font-weight-bold"><i class="fab fa-microsoft mr-1" aria-hidden="true"></i>Category:</span> {{$raport->category->name}} </h4>
             </div>
+            <div class="row">
+                <p><span class="font-weight-bold"><i class="fas fa-pencil-alt mr-1" aria-hidden="true"></i>Description:</span> {{$raport->body}}</p>
+            </div>
+            <hr class="">
             <div class="d-flex flex-column">
-                <h4 class="font-weight-bold">Proof</h4>
+                <h4 class="font-weight-bold"><i class="fas fa-search mr-1"></i>Proof</h4>
                 <form action="{{route('fixed.raport')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="row align-items-center justify-content-center mx-0">
+                    <div class="row align-items-center mx-0">
                         <label class="col-auto btn btn-info p-3 ml-4" for="images"><i class="far fa-images"></i> Upload your images</label>
                         <input id="images" name="photo" accept="image/png,image/jpg,image/jpeg" type="file" class="d-none">
                         <input name="id" type="hidden" value="1234">

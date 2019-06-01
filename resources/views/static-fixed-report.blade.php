@@ -18,7 +18,7 @@
             </div>
             <hr class="">
             <div class="d-flex flex-column">
-                <h4 class="font-weight-bold"><i class="fas fa-check-square mr-1"></i>Proof</h4>
+                <h4 class="font-weight-bold"><i class="fas fa-search mr-1"></i>Proof</h4>
                 <form action="{{route('fixed.raport')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row align-items-center mx-0">
