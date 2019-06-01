@@ -43,20 +43,20 @@ class UserController extends Controller
 
     public function rank() {
 
-        $users = User::all();
-        foreach($users as $user) {
-            $rank[] = [
-            'user' => User::find($user->id),
-            'value' => Raport::where('user_id', '=', $user->id)->count()
-            ];
-        }
-        foreach ($rank as $key => $row)
-        {
-            $count[$key] = $row['value'];
-        }
-        array_multisort($count, SORT_DESC, $rank);
+        if(User::all()->count()>0) {
+            $users = User::all();
+            foreach ($users as $user) {
+                $rank[] = ['user' => User::find($user->id), 'value' => Raport::where('user_id', '=', $user->id)->count()];
+            }
+            foreach ($rank as $key => $row) {
+                $count[$key] = $row['value'];
+            }
+            array_multisort($count, SORT_DESC, $rank);
 
 
-        return view('volunteer-ranking', ['ranks'=>$rank]);
+            return view('volunteer-ranking', ['ranks' => $rank]);
+        } else {
+            return abort(404);
+        }
     }
 }
