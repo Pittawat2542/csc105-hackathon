@@ -57,6 +57,10 @@ Route::get("/dashboard/admin", function() {
     return view("dashboard-admin");
 });
 
+Route::get("/static/prize", function() {
+    return view("static.prize");
+});
+
 Route::get('/fakereg',function() {
     $faker = Faker\Factory::create();
     $faker->locale('th_TH');

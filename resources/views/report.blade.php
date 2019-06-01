@@ -12,7 +12,7 @@
         </div>
         <div class="row mx-0 justify-content-center mt-3">
             <select class="wide-select" name="category_id">
-                <option data-display="Select">Nothing</option>
+                <option value="0" data-display="Select">Nothing</option>
                 @if($categories)
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
