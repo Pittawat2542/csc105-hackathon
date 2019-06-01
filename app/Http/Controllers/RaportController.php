@@ -99,6 +99,10 @@ class RaportController extends Controller
         }
         return redirect('/');
     }
+
+    public function thanks() {
+        return view('fixed-report-thank');
+    }
     /**
      * Update the specified resource in storage.
      *
