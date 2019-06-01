@@ -87,7 +87,7 @@
                                                                         aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
-                                    <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}"><h5 class="text-primary-blue"><i
+                                    <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}" target="_blank"><h5 class="text-primary-blue"><i
                                             class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
                                             <span style="font-size: 80%;">from your location.</span></h5></a>
                                 </div>
