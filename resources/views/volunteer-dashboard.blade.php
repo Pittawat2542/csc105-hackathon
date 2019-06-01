@@ -7,10 +7,10 @@
                 <div class="mr-auto"></div>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user">Fixed list</a>
+                        <a class="nav-link" href="/user"><i class="fas fa-tools"></i> Fixed list</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/rank">Ranking</a>
+                        <a class="nav-link" href="/rank"><i class="fas fa-medal"></i> Ranking</a>
                     </li>
                 </ul>
             </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <hr>
-            <h3 class="font-weight-bold">Interested</h3>
+            <h3 class="font-weight-bold"><i class="fas fa-star"></i> Potentials</h3>
             @if($wishlists)
                 @foreach($wishlists as $wishlist)
                     <div class="row mx-1">
@@ -34,10 +34,11 @@
                             <div class="card-body row">
                                 <div class="col-md-5 col-sm-12">
                                     <img class="img-fluid"
-                                         src="{{$wishlist->photo ? $wishlist->photo->path: 'https://via.placeholder.com/300'}}"
+                                         src="{{$wishlist->raport->photo ? $wishlist->raport->photo->path: 'https://via.placeholder.com/300'}}"
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
+                                    <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$wishlist->raport->category->name}}</h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
@@ -54,7 +55,7 @@
             @endif
             <hr>
             <div class="row d-flex align-items-center">
-                <h4>Category:</h4>
+                <h4><i class="fab fa-microsoft"></i> Category:</h4>
                 <div class="col">
                     <select name="" id="" class="full-select">
                         @if($categories)
@@ -77,7 +78,8 @@
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
-                                        <h4 class="font-weight-bold">Description</h4>
+                                        <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}</h4>
+                                        <h4 class="font-weight-bold"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
                                     <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
@@ -92,7 +94,7 @@
                                     </form>
 
                                     @auth
-                                        <form id="raport-like" class="ml-3">
+                                        <form id="raport-like">
                                             <input onclick="clickInterest(this)" id="{{$raport->id}}"
                                                    class="btn btn-danger btn-block btn-round
                                             {{$raport->wishlist ? 'interested' : ''}}" type="button" value="♥ Interest">

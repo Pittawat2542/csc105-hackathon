@@ -18,7 +18,7 @@ class Admin
     {
         if(Auth::check()) {
 
-            if (Auth::user()->isAdmin() || Auth::user()->isModerator()) {
+            if (Auth::user()->isAdmin()) {
 
                 return $next($request);
 

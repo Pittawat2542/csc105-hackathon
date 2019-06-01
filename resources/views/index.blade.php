@@ -16,7 +16,7 @@
         <div class="row">
             <div id="category" class="col">
                 <div class="row d-flex align-items-center">
-                    <h4 class="ml-3 ml-md-0 font-weight-bold">Category:</h4>
+                    <h4 class="ml-3 ml-md-0 font-weight-bold"><i class="fab fa-microsoft"></i> Category:</h4>
                     <div class="col">
                         <select class="full-select" name="category-selector">
                             <option data-display="Select">Nothing</option>
