@@ -104,12 +104,12 @@
                         });
 
                         google.maps.event.addListener(newMarker, "click", function () {
-                            infowindow.setContent("<div><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
+                            infowindow.setContent("<div class='text-center'><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
                             infowindow.open(map, this)
                         });
                     }
                     google.maps.event.addListener(marker, "click", function () {
-                        infowindow.setContent("<div><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
+                        infowindow.setContent("<div class='text-center'><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
                         infowindow.open(map, this)
                     });
                 }
