@@ -121,8 +121,7 @@
 
                                     infowindow.setContent("<div class='text-center'>" +
                                         "<img src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
-                                        "<h2>{{$raport->category->name}}</h2><p><strong>" + place.name + "</strong><br>" +
-                                        "" + place.formatted_address + "</p></div>");
+                                        "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
                                     infowindow.open(map, this)
                                 });
                             @endforeach

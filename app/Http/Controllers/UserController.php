@@ -23,7 +23,7 @@ class UserController extends Controller
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
             $query = Raport::distance($lat, $lng);
-            $raportsAround  = $query->orderBy('distance', 'DESC')->get();
+            $raportsAround  = $query->orderBy('distance', 'ASC')->get();
 
         } else {
             $raportsAround = Raport::all();
@@ -43,20 +43,20 @@ class UserController extends Controller
 
     public function rank() {
 
-        $users = User::all();
-        foreach($users as $user) {
-            $rank[] = [
-            'user' => User::find($user->id),
-            'value' => Raport::where('user_id', '=', $user->id)->count()
-            ];
-        }
-        foreach ($rank as $key => $row)
-        {
-            $count[$key] = $row['value'];
-        }
-        array_multisort($count, SORT_DESC, $rank);
+        if(User::all()->count()>0) {
+            $users = User::all();
+            foreach ($users as $user) {
+                $rank[] = ['user' => User::find($user->id), 'value' => Raport::where('user_id', '=', $user->id)->count()];
+            }
+            foreach ($rank as $key => $row) {
+                $count[$key] = $row['value'];
+            }
+            array_multisort($count, SORT_DESC, $rank);
 
 
-        return view('volunteer-ranking', ['ranks'=>$rank]);
+            return view('volunteer-ranking', ['ranks' => $rank]);
+        } else {
+            return abort(404);
+        }
     }
 }
