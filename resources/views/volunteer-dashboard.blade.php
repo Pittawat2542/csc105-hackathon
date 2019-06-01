@@ -113,7 +113,9 @@
 
                     <script>
                         function initMap() {
-                            console.log({{$raport->lat}});
+                            var lat = {{$raport->lat}};
+                            var lng = {{$raport->lng}};
+
                             var sit_kmutt = {lat: 13.652594, lng: 100.493621};
                             var map = new google.maps.Map(document.getElementById("map"), {
                                 center: sit_kmutt,
@@ -126,14 +128,13 @@
                                     var marker;
                                     marker = new google.maps.Marker({
                                         map: map, position: {
-                                            lat: {{$raport->lat}},
-                                            lng: {{$raport->lng}},
+                                            lat: lat,
+                                            lng: lng,
                                             title: '{{$raport->category->name}}',
                                         }
                                     });
 
                                     google.maps.event.addListener(marker, "click", function () {
-
                                         infowindow.setContent("<div class='text-center'>" +
                                             "<img style='max-height: 10rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                                             "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
