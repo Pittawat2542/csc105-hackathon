@@ -16,6 +16,7 @@
     <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
+
 @include('components.navbar')
 
 @yield('content')
@@ -44,7 +45,33 @@
 <script src="/js/jquery.nice-select.min.js"></script>
 <script src="/js/scripts.js"></script>
 @if (\Request::is('report'))
+    <script>
+        var apiGeolocationSuccess = function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
 
+            $.ajax({
+                url: '/getgeo',
+                data: {latitude: lat, longitude: lng, _method: 'GET'},
+                type: "POST",
+                success: function (data) {
+
+                }
+
+            });
+        };
+
+        var tryAPIGeolocation = function () {
+            $.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyB5pqlf37NqcN8xW6-FW2pbFEgpZ7ssTIk", function (success) {
+                apiGeolocationSuccess({coords: {latitude: success.location.lat, longitude: success.location.lng}});
+            })
+                .fail(function (err) {
+                    // alert("API Geolocation error! \n\n" + err);
+                });
+        };
+
+        tryAPIGeolocation();
+    </script>
 @else
     <script src="/js/redirect-to-category.js"></script>
 @endif

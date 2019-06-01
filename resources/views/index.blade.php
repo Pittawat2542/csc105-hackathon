@@ -62,28 +62,6 @@
     </div>
 
     <script>
-        var lat;
-        var lng;
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                lat = position.coords.latitude;
-                lng = position.coords.longitude;
-
-                $.ajax({
-                    url: '/getgeo',
-                    data: {latitude: lat, longitude: lng, _method: 'GET'},
-                    type: "POST",
-
-                    success: function (data) {
-                    }
-
-                });
-            });
-        }
-
-        var locationObj = {lat: parseFloat(lat), lng: parseFloat(lng)};
-
         function initMap() {
             var lat_collection = [
                 @if($raports)
@@ -119,7 +97,7 @@
                     google.maps.event.addListener(marker, "click", function () {
 
                         infowindow.setContent("<div class='text-center'>" +
-                            "<img src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                            "<img style='max-height: 10rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                             "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
                         infowindow.open(map, this)
                     });
