@@ -7,10 +7,10 @@
                 <div class="mr-auto"></div>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user">Fixed list</a>
+                        <a class="nav-link" href="/user"><i class="fas fa-tools"></i> Fixed list</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/rank">Ranking</a>
+                        <a class="nav-link" href="/rank"><i class="fas fa-medal"></i> Ranking</a>
                     </li>
                 </ul>
             </div>
@@ -38,6 +38,7 @@
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
+                                    <h4><span class="font-weight-bold">Categotry</span> {{$wishlist->raport()->category()->category}}</h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
