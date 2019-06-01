@@ -113,6 +113,7 @@
 
                     <script>
                         function initMap() {
+                            console.log({{$raport->lat}});
                             var sit_kmutt = {lat: 13.652594, lng: 100.493621};
                             var map = new google.maps.Map(document.getElementById("map"), {
                                 center: sit_kmutt,
