@@ -125,11 +125,10 @@
                             var service = new google.maps.places.PlacesService(map);
                             service.getDetails({placeId: "ChIJ9ZZzpVGi4jARI56-Js0p2C8"}, function (place, status) {
                                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                                    var marker;
-                                    marker = new google.maps.Marker({
+                                    var marker = new google.maps.Marker({
                                         map: map, position: {
-                                            lat: lat,
-                                            lng: lng,
+                                            lat: 13.652594,
+                                            lng: 100.493621,
                                             title: '{{$raport->category->name}}',
                                         }
                                     });
