@@ -38,7 +38,7 @@
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
-                                    <h4><span class="font-weight-bold">Category</span> {{$wishlist->raport->category->category}}</h4>
+                                    <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$wishlist->raport->category}}</h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
@@ -55,7 +55,7 @@
             @endif
             <hr>
             <div class="row d-flex align-items-center">
-                <h4>Category:</h4>
+                <h4><i class="fab fa-microsoft"></i> Category:</h4>
                 <div class="col">
                     <select name="" id="" class="full-select">
                         @if($categories)
@@ -78,8 +78,8 @@
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
-                                        <h4><span class="font-weight-bold">Category</span> {{$raport->category->category}}</h4>
-                                        <h4 class="font-weight-bold">Description</h4>
+                                        <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$raport->category}}</h4>
+                                        <h4 class="font-weight-bold"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
                                     <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
