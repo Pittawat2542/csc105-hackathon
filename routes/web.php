@@ -72,3 +72,6 @@ Route::get('/fakereg',function() {
     ]);
     return redirect('/');
 });
+Route::get("/static/report-fixed", function() {
+    return view("static-fixed-report");
+});
