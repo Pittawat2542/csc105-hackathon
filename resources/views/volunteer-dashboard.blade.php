@@ -20,9 +20,6 @@
                 </div>
                 <div class="col-md-10">
                     <h2>{{Auth::user()->name}}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cumque deleniti dolore doloremque
-                        eius eos, eveniet facilis fugiat, impedit ipsa nesciunt nostrum quis ratione rerum similique
-                        totam veritatis voluptas! Magni.</p>
                 </div>
             </div>
             <hr>
@@ -46,7 +43,7 @@
                                     <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$wishlist->raport->lat}}+{{$wishlist->raport->lng}}"
                                        target="_blank"><h5 class="text-primary-blue"><i
                                                     class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">
-                                                {{$wishlist->raport->calculateDistance()}} KM</span>
+                                                {{$wishlist->raport->calculateDistance()}}</span>
                                             <span style="font-size: 80%;">from your location.</span></h5></a>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
                                         @csrf
@@ -61,18 +58,6 @@
                 @endforeach
             @endif
             <hr>
-            <div class="row d-flex align-items-center">
-                <h4><i class="fab fa-microsoft"></i> Category:</h4>
-                <div class="col">
-                    <select name="" id="" class="full-select">
-                        @if($categories)
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                        @endif
-                    </select>
-                </div>
-            </div>
             @if($raports)
                 @foreach($raports as $raport)
                     <div class="row mx-1">
@@ -94,7 +79,7 @@
                                     </div>
                                     <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}"
                                        target="_blank"><h5 class="text-primary-blue"><i
-                                                    class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                                    class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}}</span>
                                             <span style="font-size: 80%;">from your location.</span></h5></a>
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center">

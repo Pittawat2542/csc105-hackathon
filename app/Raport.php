@@ -57,7 +57,10 @@ class Raport extends Model
             $dist = rad2deg($dist);
             $miles = $dist * 60 * 1.1515;
             $result = $miles * 1.609344;
-            if($result<1) {
+            if($result<0.005){
+                return "Less than 5 meter"
+            }
+            else if($result<1) {
                     $resRound = round($result, 3)*1000;
                     return $resRound . " meter";
                 } else {
