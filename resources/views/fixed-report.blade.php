@@ -19,12 +19,11 @@
             <hr class="">
             <div class="d-flex flex-column">
                 <h4 class="font-weight-bold"><i class="fas fa-search mr-1"></i>Proof</h4>
-                <form action="{{route('fixed.raport')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('fixed.raport', $raport->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row align-items-center mx-0">
                         <label class="col-auto btn btn-info p-3 ml-4" for="images"><i class="far fa-images"></i> Upload your images</label>
                         <input id="images" name="photo" accept="image/png,image/jpg,image/jpeg" type="file" class="d-none">
-                        <input name="id" type="hidden" value="1234">
                         <span id="countFiles" class="col-auto ml-2">No files chosen</span>
                     </div>
                     <button class="btn btn-primary bg-primary-orange float-right"><i class="far fa-check-square"></i> Submit</button>

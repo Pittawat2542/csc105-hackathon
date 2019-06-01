@@ -23,7 +23,7 @@ Route::get('/category/{id}', 'CategoryController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::post('/raport/fixed', 'RaportController@fixed')->name('fixed.raport');
+    Route::post('/raport/fixed/{id}', 'RaportController@fixed')->name('fixed.raport');
 
     Route::resource('/report', 'RaportController', ['names' => [
         'index' => 'index.raport',
@@ -60,8 +60,7 @@ Route::get("/static/prize", function () {
 });
 
 Route::get('/fakereg', function () {
-    $faker = Faker\Factory::create();
-    $faker->locale('th_TH');
+    $faker = Faker\Factory::create('de_DE');
     User::create([
         'name' => $faker->name,
         'email' => $faker->email,

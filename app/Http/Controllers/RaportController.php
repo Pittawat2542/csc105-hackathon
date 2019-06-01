@@ -89,13 +89,13 @@ class RaportController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function fixed(Request $request) {
-        $raport = Raport::findOrFail($request->id);
+    public function fixed(Request $request, $id) {
+        $raport = Raport::findOrFail($id);
         $requestRaport['user_id'] = Auth::user()->id;
         $raport->update($requestRaport);
         $photo = new Photo();
         if($file = $request->file('photo')){
-            $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', $request->id, Auth::user()->id);
+            $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', $id, Auth::user()->id);
         }
         return redirect('/');
     }

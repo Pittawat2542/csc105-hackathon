@@ -2,7 +2,7 @@
 
 @section('content')
     @include('logo')
-    <p class="display-4 text-center"><i class="far fa-file-alt"></i> REPORT EDIT</p>
+    <p class="display-4 text-center"><i class="far fa-file-alt"></i> REPORT</p>
     <form class="container" action="{{Route('store.raport')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row align-items-center justify-content-center mx-0">
@@ -12,7 +12,6 @@
         </div>
         <div class="row mx-0 justify-content-center mt-3">
             <select class="wide-select" name="category_id">
-                <option value="0" data-display="Select">Nothing</option>
                 @if($categories)
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
