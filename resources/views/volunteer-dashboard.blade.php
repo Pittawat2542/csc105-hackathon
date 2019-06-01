@@ -94,7 +94,7 @@
                                     </form>
 
                                     @auth
-                                        <form id="raport-like" class="ml-3">
+                                        <form id="raport-like">
                                             <input onclick="clickInterest(this)" id="{{$raport->id}}"
                                                    class="btn btn-danger btn-block btn-round
                                             {{$raport->wishlist ? 'interested' : ''}}" type="button" value="♥ Interest">
