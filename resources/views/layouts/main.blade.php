@@ -43,5 +43,10 @@
 <script src="/assets/js/jquery.nice-select.min.js"></script>
 <script src="/js/jquery.nice-select.min.js"></script>
 <script src="/js/scripts.js"></script>
+@if (\Request::is('report'))
+
+@else
+    <script src="/js/redirect-to-category.js"></script>
+@endif
 </body>
 </html>
