@@ -33,7 +33,7 @@
                                             class="fas fa-tools"></i> Fixed
                                 </button>
                             </form>
-                            <a class="btn btn-info btn-lg py-2 px-3 mx-1 text-white" href="/admin/raport/{{$raport->id}}/edit"><i class="far fa-edit"></i> EDIT</a>
+                            <a class="btn btn-info btn-block btn-round" href="/admin/raport/{{$raport->id}}/edit"><i class="far fa-edit"></i> EDIT</a>
                             <form action="{{route('admin.delete.raport', $raport->id)}}" METHOD="post">
                                 <input type="hidden" name="_method" value="delete" />
                                 @csrf
