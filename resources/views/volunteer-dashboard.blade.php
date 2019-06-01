@@ -39,14 +39,19 @@
                                 </div>
                                 <div class="col-md-7 col-sm-12">
                                     <h4><span class="font-weight-bold"><i
-                                                class="fab fa-microsoft"></i> Category</span> {{$wishlist->raport->category->name}}
+                                                    class="fab fa-microsoft"></i> Category</span> {{$wishlist->raport->category->name}}
                                     </h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
+                                    <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$wishlist->raport->lat}}+{{$wishlist->raport->lng}}"
+                                       target="_blank"><h5 class="text-primary-blue"><i
+                                                    class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">
+                                                {{$wishlist->raport->calculateDistance()}} KM</span>
+                                            <span style="font-size: 80%;">from your location.</span></h5></a>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
                                         @csrf
                                         <button class="btn btn-success btn-block btn-round" type="submit"><i
-                                                class="fas fa-tools"></i> Fixed
+                                                    class="fas fa-tools"></i> Fixed
                                         </button>
                                     </form>
                                 </div>
@@ -81,21 +86,22 @@
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
                                         <h4><span class="font-weight-bold"><i
-                                                    class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
+                                                        class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
                                         </h4>
                                         <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"
                                                                         aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
-                                    <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}" target="_blank"><h5 class="text-primary-blue"><i
-                                            class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                    <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}"
+                                       target="_blank"><h5 class="text-primary-blue"><i
+                                                    class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
                                             <span style="font-size: 80%;">from your location.</span></h5></a>
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center">
                                     <form action="{{route('report.show', $raport->id)}}">
                                         @csrf
                                         <button class="btn btn-success btn-block btn-round" type="submit"><i
-                                                class="fas fa-tools"></i> Fixed
+                                                    class="fas fa-tools"></i> Fixed
                                         </button>
                                     </form>
 
