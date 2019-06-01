@@ -73,7 +73,7 @@
                                          src="{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}"
                                          alt="">
                                 </div>
-                                <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-around">
+                                <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
                                         <h4 class="font-weight-bold">Description</h4>
                                         <p>{{$raport->body}}</p>
@@ -81,7 +81,7 @@
                                     <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
                                         <span style="font-size: 80%;">from your location.</span></h5>
                                 </div>
-                                <div class="col-md-2 col-sm-12 d-flex flex-column justify-content-center">
+                                <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center">
                                     <form action="{{route('report.show', $raport->id)}}">
                                         @csrf
                                         <button class="btn btn-success btn-block btn-round" type="submit"><i
