@@ -38,7 +38,7 @@
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
-                                    <h4><span class="font-weight-bold">Categotry</span> {{$wishlist->raport->category->category}}</h4>
+                                    <h4><span class="font-weight-bold">Category</span> {{$wishlist->raport->category->category}}</h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
@@ -78,6 +78,7 @@
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
+                                        <h4><span class="font-weight-bold">Category</span> {{$wishlist->raport->category->category}}</h4>
                                         <h4 class="font-weight-bold">Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
