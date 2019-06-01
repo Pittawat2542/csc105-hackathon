@@ -25,9 +25,20 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-12 d-flex flex-column justify-content-center">
-                            <a class="btn btn-success btn-lg py-2 px-3 mx-1 text-white" href="#"><i class="far fa-check-circle"></i> FIXED</a>
-                            <a class="btn btn-info btn-lg py-2 px-3 mx-1 text-white" href="#"><i class="far fa-edit"></i> EDIT</a>
-                            <a class="btn btn-danger btn-lg py-2 px-3 mx-1 text-white" href="#"><i class="far fa-trash-alt"></i> DELETE</a>
+                            <form action="{{route('report.show', $raport->id)}}">
+                                @csrf
+                                <button class="btn btn-success btn-block btn-round" type="submit"><i
+                                            class="fas fa-tools"></i> Fixed
+                                </button>
+                            </form>
+                            <a class="btn btn-info btn-lg py-2 px-3 mx-1 text-white" href="/admin/raport/{{$raport->id}}/edit"><i class="far fa-edit"></i> EDIT</a>
+                            <form action="{{route('admin.delete.raport', $raport->id)}}" METHOD="post">
+                                <input type="hidden" name="_method" value="delete" />
+                                @csrf
+                                <button class="btn btn-danger btn-block btn-round" type="submit"><i
+                                            class="fas fa-tools"></i> DELETE
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

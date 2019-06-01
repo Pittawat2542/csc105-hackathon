@@ -3,16 +3,21 @@
 @section('content')
     @include('logo')
     <p class="display-4 text-center"><i class="far fa-file-alt"></i> REPORT EDIT</p>
-    <form class="container" action="{{Route('store.raport')}}" method="POST" enctype="multipart/form-data">
+    <form class="container" action="{{Route('admin.update.raport', $raport->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        <div class="col-md-3 col-sm-12 text-center">
+            <img class="img-fluid"
+                 src="{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}"
+                 alt="">
+        </div>
         <div class="row align-items-center justify-content-center mx-0">
-            <label class="col-auto btn btn-info p-3 ml-4" for="images"><i class="far fa-images"></i> Upload your images</label>
+            <label class="col-auto btn btn-info p-3 ml-4" for="images"><i class="far fa-images"></i> Upload new image</label>
             <input id="images" name="photo" accept="image/png,image/jpg,image/jpeg" type="file" class="d-none">
             <span id="countFiles" class="col-auto ml-2">No files chosen</span>
         </div>
         <div class="row mx-0 justify-content-center mt-3">
             <select class="wide-select" name="category_id">
-                <option value="0" data-display="Select">Nothing</option>
+                <option value="{{$raport->category_id}}">{{$raport->category->name}}</option>
                 @if($categories)
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -23,7 +28,7 @@
         <div class="row mx-0 mt-4">
             <div class="col form-group p-4">
                 <label for="description" class="ml-4"><i class="fas fa-pencil-alt"></i> Description</label>
-                <textarea id="description" class="form-control" rows="4" name="body"></textarea>
+                <textarea id="description" class="form-control" rows="4" name="body">{{$raport->body}}</textarea>
             </div>
         </div>
         <div class="row justify-content-end">

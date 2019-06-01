@@ -45,6 +45,9 @@ Route::group(['middleware'=>'admin'], function() {
 
     //index page of admin page
     Route::get('/admin', 'AdminController@index')->name('admin');
+    Route::delete('/admin/raport/{id}', 'AdminController@destroy')->name('admin.delete.raport');
+    Route::get('/admin/raport/{id}/edit', 'AdminController@edit')->name('admin.edit.raport');
+    Route::post('/admin/raport/{id}/update', 'AdminController@update')->name('admin.update.raport');
 
 });
 
@@ -52,10 +55,6 @@ Route::get('/getgeo', 'UserController@getGeo');
 /* Front-end routes */
 
 Route::get('/rank', 'UserController@rank')->name('rank');
-
-Route::get("/dashboard/admin", function() {
-    return view("dashboard-admin");
-});
 
 Route::get("/static/prize", function() {
     return view("static.prize");
