@@ -41,6 +41,13 @@ Route::group(['middleware'=>'auth'], function() {
 
 });
 
+Route::group(['middleware'=>'admin'], function() {
+
+    //index page of admin page
+    Route::get('/admin', 'AdminController@index')->name('admin');
+
+});
+
 Route::get('/getgeo', 'UserController@getGeo');
 /* Front-end routes */
 
