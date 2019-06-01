@@ -95,10 +95,11 @@ footer {
 
 /* Volunteer Ranking */
 
-#volunteerList{
+#volunteerList {
     max-width: 1140px;
 }
-#volunteerList h4,#volunteerList i{
+
+#volunteerList h4, #volunteerList i {
     font-size: 2.3rem;
     color: gray;
     position: absolute;
@@ -166,13 +167,15 @@ footer {
 }
 
 /* wishlist */
-.interested{
-    color: red!important;
-    background-color:white!important;
+.interested {
+    color: red !important;
+    background-color: white !important;
 }
+
 .interested:hover {
     color: white;
 }
+
 /*.like-form{*/
 /*    position:relative;*/
 /*    top: -3rem;*/
