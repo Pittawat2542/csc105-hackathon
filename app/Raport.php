@@ -59,10 +59,10 @@ class Raport extends Model
             $result = $miles * 1.609344;
             if($result<1) {
                     $resRound = round($result, 3)*1000;
-                    return $resRound + " meters";
+                    return $resRound . " meter";
                 } else {
                     $resRound = round($result,1);
-                    return $resRound + " km";
+                    return $resRound . " km";
                 }
             }
         }
