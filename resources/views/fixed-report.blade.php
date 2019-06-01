@@ -1,4 +1,4 @@
-@extends('layouts.main')
+g@extends('layouts.main')
 
 @section('content')
     @include('logo')
