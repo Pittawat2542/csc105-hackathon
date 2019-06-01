@@ -26,76 +26,34 @@
         $(document).width();
 
 
-
         vltl = document.querySelectorAll('h4.rank');
         vltl2 = document.querySelectorAll('i.rank');
         vltl3 = document.querySelectorAll('#volunteerList .user-point');
-        // for(var key in vltl3){
-        //     console.log(vltl3[key].innerHTML);
-        // }
-        for (i = 0,currentRank = 1,lastPoint =vltl3[0].innerHTML.substring(56); i < vltl.length; ++i) {
+
+        for (i = 0, currentRank = 1, lastPoint = vltl3[0].innerHTML.substring(85); i < vltl.length; ++i) {
             var thisPoint = vltl3[i].innerHTML.substring(85);
-            console.log(i);
-            if(i==0){
+            if(lastPoint!=thisPoint){
+                currentRank = i+1;
+            }
+            if(currentRank==1){
                 vltl[i].classList.add('rank-1');
                 vltl2[i].classList.add('rank-1');
-                vltl[0].innerHTML = '1<sup>st</sup>'
-                lastPoint =thisPoint;
-                console.log(vltl[i].classList);
+                vltl[i].innerHTML = '1<sup>st</sup>'
+                lastPoint = thisPoint;
+            }else if(currentRank==2){
+                vltl[i].classList.add('rank-2');
+                vltl2[i].classList.add('rank-2');
+                vltl[i].innerHTML = '2<sup>nd</sup>'
+                lastPoint = thisPoint;
+            }else if(currentRank==3){
+                vltl[i].classList.add('rank-3');
+                vltl2[i].classList.add('rank-3');
+                vltl[i].innerHTML = '3<sup>rd</sup>'
+                lastPoint = thisPoint;
             }else{
-                if(currentRank==1){
-                    if(lastPoint==thisPoint){
-                        vltl[i].classList.add('rank-1');
-                        vltl2[i].classList.add('rank-1');
-                        vltl[i].innerHTML = '1<sup>st</sup>'
-                    }else{
-                        vltl[i].classList.add('rank-2');
-                        vltl2[i].classList.add('rank-2');
-                        vltl[i].innerHTML = '2<sup>nd</sup>'
-                        lastPoint = thisPoint;
-                        currentRank =i;
-                    }
-                }else if(currentRank == 2){
-                    if(lastPoint==thisPoint){
-                        vltl[i].classList.add('rank-2');
-                        vltl2[i].classList.add('rank-2');
-                        vltl[i].innerHTML = '2<sup>nd</sup>'
-                    }else{
-                        vltl[i].classList.add('rank-3');
-                        vltl2[i].classList.add('rank-3');
-                        vltl[i].innerHTML = '3<sup>rd</sup>'
-                        lastPoint = thisPoint;
-                        currentRank =i;
-                    }
-                }
-                else if(currentRank == 3){
-                    if(lastPoint==thisPoint){
-                        vltl[i].classList.add('rank-3');
-                        vltl2[i].classList.add('rank-3');
-                        vltl[i].innerHTML = '3<sup>rd</sup>'
-                    }else{
-                        vltl[i].innerHTML =i+'<sup>th</sup>'
-                        lastPoint = thisPoint;
-                        currentRank =i;
-                    }
-                }else {
-                    if(lastPoint==thisPoint){
-                        vltl[i].innerHTML = currentRank+'<sup>nd</sup>'
-                    }else{
-                        vltl[i].innerHTML =i+'<sup>th</sup>'
-                        lastPoint = thisPoint;
-                        currentRank =i;
-                    }
-                }
-                console.log('curr:',currentRank,'i:',i,'last:',lastPoint)
+                vltl[i].innerHTML = currentRank + '<sup>th</sup>'
+                lastPoint = thisPoint;
             }
-
-            // if(currentRank==1&&lastPoint)
-            //
-            // vltl[i].innerHTML = `${i + 1}<sup>th</sup>`
-            // if (vltl[0]) vltl[0].innerHTML = '1<sup>st</sup>'
-            // if (vltl[1]) vltl[1].innerHTML = '2<sup>nd</sup>'
-            // if (vltl[2]) vltl[2].innerHTML = '3<sup>rd</sup>'
         }
 
     </script>
