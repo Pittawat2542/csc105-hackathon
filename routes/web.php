@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/', 'RaportController@index');
 
+Route::get('/category/{id}', 'CategoryController@index');
+
 Route::group(['middleware'=>'auth'], function() {
 
     Route::post('/raport/fixed', 'RaportController@fixed')->name('fixed.raport');

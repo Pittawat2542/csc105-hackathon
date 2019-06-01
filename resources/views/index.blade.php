@@ -112,11 +112,13 @@
                                 newMarker = new google.maps.Marker({
                                     map: map, position: {
                                         lat: lat_collection[{{$loop->index}}],
-                                        lng: lng_collection[{{$loop->index}}]
+                                        lng: lng_collection[{{$loop->index}}],
+                                        title: '{{$raport->category->name}}',
                                     }
                                 });
 
                                 google.maps.event.addListener(newMarker, "click", function () {
+
                                     infowindow.setContent("<div class='text-center'>" +
                                         "<img src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                                         "<h2>{{$raport->category->name}}</h2><p><strong>" + place.name + "</strong><br>" +
