@@ -40,8 +40,6 @@
                                     </div>
                                     <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
                                         <div>
-                                            <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
-                                            </h4>
                                             <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description
                                             </h4>
                                             <p>{{$raport->body}}</p>
@@ -84,50 +82,6 @@
             });
         }
 
-        var apiGeolocationSuccess = function(position) {
-            alert("API geolocation success!\n\nlat = " + position.coords.latitude + "\nlng = " + position.coords.longitude);
-        };
-
-        var tryAPIGeolocation = function() {
-            jQuery.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyB5pqlf37NqcN8xW6-FW2pbFEgpZ7ssTIk", function(success) {
-                apiGeolocationSuccess({coords: {latitude: success.location.lat, longitude: success.location.lng}});
-            })
-                .fail(function(err) {
-                    alert("API Geolocation error! \n\n"+err);
-                });
-        };
-
-        var browserGeolocationSuccess = function(position) {
-            alert("Browser geolocation success!\n\nlat = " + position.coords.latitude + "\nlng = " + position.coords.longitude);
-        };
-
-        var browserGeolocationFail = function(error) {
-            switch (error.code) {
-                case error.TIMEOUT:
-                    alert("Browser geolocation error !\n\nTimeout.");
-                    break;
-                case error.PERMISSION_DENIED:
-                    if(error.message.indexOf("Only secure origins are allowed") == 0) {
-                        tryAPIGeolocation();
-                    }
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("Browser geolocation error !\n\nPosition unavailable.");
-                    break;
-            }
-        };
-
-        var tryGeolocation = function() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    browserGeolocationSuccess,
-                    browserGeolocationFail,
-                    {maximumAge: 50000, timeout: 20000, enableHighAccuracy: true});
-            }
-        };
-
-        tryGeolocation();
-
         var locationObj = {lat: parseFloat(lat), lng: parseFloat(lng)};
 
         function initMap() {
@@ -151,11 +105,10 @@
             var service = new google.maps.places.PlacesService(map);
             service.getDetails({placeId: "ChIJ9ZZzpVGi4jARI56-Js0p2C8"}, function (place, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    var marker = new google.maps.Marker({map: map, position: sit_kmutt});
-                    var newMarker;
+                    var marker;
                     @if($raports)
                         @foreach($raports as $raport)
-                        newMarker = new google.maps.Marker({
+                        marker = new google.maps.Marker({
                         map: map, position: {
                             lat: lat_collection[{{$loop->index}}],
                             lng: lng_collection[{{$loop->index}}],
@@ -163,19 +116,15 @@
                         }
                     });
 
-                    google.maps.event.addListener(newMarker, "click", function () {
+                    google.maps.event.addListener(marker, "click", function () {
 
                         infowindow.setContent("<div class='text-center'>" +
-                            "<img class='img-fluid' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                            "<img src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                             "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
                         infowindow.open(map, this)
                     });
                     @endforeach
                     @endif
-                    google.maps.event.addListener(marker, "click", function () {
-                        infowindow.setContent("<div class='text-center'><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
-                        infowindow.open(map, this)
-                    });
                 }
             })
         }
