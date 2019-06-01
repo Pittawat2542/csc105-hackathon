@@ -4,12 +4,12 @@
     <section class="container mt-3">
         <div class="card">
             <div class="card-body">
-                <div class="card-title">{{ __('Login') }}</div>
+                <div class="card-title"><h4><i class="fas fa-key" aria-hidden="true"></i> {{ __('Login') }}</h4></div>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
                     <div class="form-group">
-                        <label for="email">{{ __('E-Mail Address') }}</label>
+                        <label for="email"><i class="far fa-envelope"></i> {{ __('E-Mail Address') }}</label>
 
                         <input id="email" type="email"
                                class="form-control @error('email') is-invalid @enderror" name="email"
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">{{ __('Password') }}</label>
+                        <label for="password"><i class="fas fa-lock"></i> {{ __('Password') }}</label>
 
                         <input id="password" type="password"
                                class="form-control @error('password') is-invalid @enderror" name="password"
@@ -48,8 +48,10 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Login') }}
+                    <hr>
+
+                    <button type="submit" class="btn btn-primary bg-primary-orange">
+                        <i class="fas fa-key"></i> {{ __('Login') }}
                     </button>
 
                     @if (Route::has('password.request'))
