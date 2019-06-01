@@ -15,8 +15,7 @@
                     </div>
                     <div class="text-left">
                         <p class="h3 mt-0 font-weight-bold">{{$rank['user']->name}}</p>
-                        <p class="h4 user-point"><span class="font-weight-bold">Volunteer Point : </span>{{$rank['value']}}</p>
-                        <p class="h4"><span class="font-weight-bold"><i class="far fa-clock"></i> Volunteer Point : </span>{{$rank['value']}}</p>
+                        <p class="h4 user-point"><span class="font-weight-bold"><i class="far fa-clock"></i> Volunteer Point : </span>{{$rank['value']}}</p>
                     </div>
                 </div>
             </div>
@@ -35,7 +34,7 @@
         //     console.log(vltl3[key].innerHTML);
         // }
         for (i = 0,currentRank = 1,lastPoint =vltl3[0].innerHTML.substring(56); i < vltl.length; ++i) {
-            var thisPoint = vltl3[i].innerHTML.substring(56);
+            var thisPoint = vltl3[i].innerHTML.substring(85);
             console.log(i);
             if(i==0){
                 vltl[i].classList.add('rank-1');
@@ -73,7 +72,7 @@
                     if(lastPoint==thisPoint){
                         vltl[i].classList.add('rank-3');
                         vltl2[i].classList.add('rank-3');
-                        vltl[i].innerHTML = '2<sup>nd</sup>'
+                        vltl[i].innerHTML = '3<sup>rd</sup>'
                     }else{
                         vltl[i].innerHTML =i+'<sup>th</sup>'
                         lastPoint = thisPoint;
@@ -81,7 +80,7 @@
                     }
                 }else {
                     if(lastPoint==thisPoint){
-                        vltl[i].innerHTML = '2<sup>nd</sup>'
+                        vltl[i].innerHTML = currentRank+'<sup>nd</sup>'
                     }else{
                         vltl[i].innerHTML =i+'<sup>th</sup>'
                         lastPoint = thisPoint;
