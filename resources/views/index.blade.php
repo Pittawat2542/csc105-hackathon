@@ -120,7 +120,7 @@
                                 google.maps.event.addListener(newMarker, "click", function () {
 
                                     infowindow.setContent("<div class='text-center'>" +
-                                        "<img src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                                        "<img class='img-fluid' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                                         "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
                                     infowindow.open(map, this)
                                 });
