@@ -21,11 +21,12 @@ class CategoryController extends Controller
         if((Session::get('userLat')!=null) | (Session::get('userLng')!=null)) {
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
-            $query = Raport::distance($lat, $lng)->where('category_id', '=', $id);
+            $query = Raport::distance($lat, $lng)->where('category_id', '=', $id)->where('user_id', '=', null);
             $raportsAround  = $query->orderBy('distance', 'ASC')->get();
         } else {
-            $raportsAround = Raport::where('category_id', '=', $id)->get();
+            $raportsAround = Raport::where('category_id', '=', $id)->where('user_id', '=', null)->get();
         }
+
         return view('index', ['raports'=>$raportsAround, 'categories'=>Category::all()]);
     }
 

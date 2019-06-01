@@ -23,10 +23,10 @@ class RaportController extends Controller
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
             $query = Raport::distance($lat, $lng);
-            $raportsAround = $query->orderBy('distance', 'ASC')->get();
+            $raportsAround = $query->orderBy('distance', 'ASC')->where('user_id', '=', null)->get();
 
         } else {
-            $raportsAround = Raport::all();
+            $raportsAround = Raport::where('user_id', '=', null);
         }
         return view('index', ['raports' => $raportsAround, 'categories' => Category::all()]);
     }
