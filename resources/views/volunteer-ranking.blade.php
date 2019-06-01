@@ -72,7 +72,7 @@
                     if(lastPoint==thisPoint){
                         vltl[i].classList.add('rank-3');
                         vltl2[i].classList.add('rank-3');
-                        vltl[i].innerHTML = '2<sup>nd</sup>'
+                        vltl[i].innerHTML = '3<sup>rd</sup>'
                     }else{
                         vltl[i].innerHTML =i+'<sup>th</sup>'
                         lastPoint = thisPoint;
@@ -80,7 +80,7 @@
                     }
                 }else {
                     if(lastPoint==thisPoint){
-                        vltl[i].innerHTML = '2<sup>nd</sup>'
+                        vltl[i].innerHTML = currentRank+'<sup>nd</sup>'
                     }else{
                         vltl[i].innerHTML =i+'<sup>th</sup>'
                         lastPoint = thisPoint;
