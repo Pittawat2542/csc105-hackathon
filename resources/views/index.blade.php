@@ -70,6 +70,8 @@
         var apiGeolocationSuccess = function (position) {
             lat = position.coords.latitude;
             lng = position.coords.longitude;
+
+            alert(JSON.stringify({lat: lat, lng:lng}));
         };
 
         var tryAPIGeolocation = function () {
@@ -81,8 +83,6 @@
         };
 
         tryAPIGeolocation();
-
-        var locationObj = {lat: parseFloat(lat), lng: parseFloat(lng)};
 
         function initMap() {
             var lat_collection = [
@@ -105,7 +105,7 @@
             var service = new google.maps.places.PlacesService(map);
             service.getDetails({placeId: "ChIJ9ZZzpVGi4jARI56-Js0p2C8"}, function (place, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    var marker = new google.maps.Marker({map: map, position: sit_kmutt});
+                    // var marker = new google.maps.Marker({map: map, position: sit_kmutt});
                     var newMarker;
                     @if($raports)
                         @foreach($raports as $raport)
@@ -126,10 +126,10 @@
                     });
                     @endforeach
                     @endif
-                    google.maps.event.addListener(marker, "click", function () {
-                        infowindow.setContent("<div class='text-center'><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
-                        infowindow.open(map, this)
-                    });
+                    // google.maps.event.addListener(marker, "click", function () {
+                    //     infowindow.setContent("<div class='text-center'><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");
+                    //     infowindow.open(map, this)
+                    // });
                 }
             })
         }
