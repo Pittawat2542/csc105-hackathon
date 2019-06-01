@@ -87,9 +87,9 @@
                                                                         aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
-                                    <h5 class="text-primary-blue" data-toggle="modal" data-target="#exampleModal"><i
+                                    <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}"><h5 class="text-primary-blue"><i
                                             class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
-                                        <span style="font-size: 80%;">from your location.</span></h5>
+                                            <span style="font-size: 80%;">from your location.</span></h5></a>
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center">
                                     <form action="{{route('report.show', $raport->id)}}">
@@ -110,63 +110,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                        function initMap() {
-                            var lat = {{$raport->lat}};
-                            var lng = {{$raport->lng}};
-
-                            var sit_kmutt = {lat: 13.652594, lng: 100.493621};
-                            var map = new google.maps.Map(document.getElementById("map"), {
-                                center: sit_kmutt,
-                                zoom: 19
-                            });
-                            var infowindow = new google.maps.InfoWindow();
-                            var service = new google.maps.places.PlacesService(map);
-                            service.getDetails({placeId: "ChIJ9ZZzpVGi4jARI56-Js0p2C8"}, function (place, status) {
-                                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                                    var marker = new google.maps.Marker({
-                                        map: map, position: {
-                                            lat: 13.652594,
-                                            lng: 100.493621,
-                                            title: '{{$raport->category->name}}',
-                                        }
-                                    });
-
-                                    google.maps.event.addListener(marker, "click", function () {
-                                        infowindow.setContent("<div class='text-center'>" +
-                                            "<img style='max-height: 10rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
-                                            "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
-                                        infowindow.open(map, this)
-                                    });
-                                }
-                            })
-                        }
-                    </script>
                 @endforeach
             @endif
         </div>
     </section>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Location</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div id="map">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         $(document).ready(function () {
