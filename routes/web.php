@@ -55,11 +55,7 @@ Route::get('/getgeo', 'UserController@getGeo');
 
 Route::get('/rank', 'UserController@rank')->name('rank');
 
-<<<<<<< HEAD
 Route::get("/static/prize", function () {
-=======
-Route::get("/static/prize", function() {
->>>>>>> 0ed55ba2d50760199db877dcb6eabffe7c0453a3
     return view("static.prize");
 });
 
@@ -74,12 +70,11 @@ Route::get('/fakereg', function () {
     ]);
     return redirect('/');
 });
-<<<<<<< HEAD
 
-Route::get("/fixed-thank", function() {
-   return view('fixed-report-thank');
-=======
-Route::get("/static/report-fixed", function() {
+Route::get("/fixed-thank", function () {
+    return view('fixed-report-thank');
+});
+
+Route::get("/static/report-fixed", function () {
     return view("static-fixed-report");
->>>>>>> 0ed55ba2d50760199db877dcb6eabffe7c0453a3
 });
