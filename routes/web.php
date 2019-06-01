@@ -23,7 +23,7 @@ Route::get('/category/{id}', 'CategoryController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get("/raport/fixed", "RaportController@thanks");
+    Route::get("/raport/fixed/thank", "RaportController@thanks");
 
     Route::post('/raport/fixed', 'RaportController@fixed')->name('fixed.raport');
 
