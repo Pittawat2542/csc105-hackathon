@@ -19,9 +19,9 @@
                                 </h4>
                                 <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description</h4>
                                 <p>{{$raport->body}}</p>
-                                <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}}</span>
                                     <span style="font-size: 80%;">from your location.</span></h5>
-                                <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold"><span style="font-size: 80%;">Location.</span>{{$raport->lng}}</span>
+                                <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold"><span style="font-size: 80%;">Location.</span>{{$raport->lng}}, {{$raport->lat}}</span>
                                     </h5>
                                 <h5>Created {{$raport->created_at}}</h5>
                             </div>

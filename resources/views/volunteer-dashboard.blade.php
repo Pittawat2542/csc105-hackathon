@@ -46,7 +46,7 @@
                                     <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$wishlist->raport->lat}}+{{$wishlist->raport->lng}}"
                                        target="_blank"><h5 class="text-primary-blue"><i
                                                     class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">
-                                                {{$wishlist->raport->calculateDistance()}} KM</span>
+                                                {{$wishlist->raport->calculateDistance()}}</span>
                                             <span style="font-size: 80%;">from your location.</span></h5></a>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
                                         @csrf
@@ -94,7 +94,7 @@
                                     </div>
                                     <a href="http://maps.google.com/maps?z=19&t=m&q=loc:{{$raport->lat}}+{{$raport->lng}}"
                                        target="_blank"><h5 class="text-primary-blue"><i
-                                                    class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                                    class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}}</span>
                                             <span style="font-size: 80%;">from your location.</span></h5></a>
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center">
