@@ -21,11 +21,11 @@ Route::get('/', 'RaportController@index');
 
 Route::get('/category/{id}', 'CategoryController@index');
 
-Route::group(['middleware'=>'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/raport/fixed', 'RaportController@fixed')->name('fixed.raport');
 
-    Route::resource('/report', 'RaportController', ['names'=>[
+    Route::resource('/report', 'RaportController', ['names' => [
         'index' => 'index.raport',
         'create' => 'create.raport',
         'store' => 'store.raport',
@@ -41,7 +41,7 @@ Route::group(['middleware'=>'auth'], function() {
 
 });
 
-Route::group(['middleware'=>'admin'], function() {
+Route::group(['middleware' => 'admin'], function () {
 
     //index page of admin page
     Route::get('/admin', 'AdminController@index')->name('admin');
@@ -52,15 +52,18 @@ Route::group(['middleware'=>'admin'], function() {
 });
 
 Route::get('/getgeo', 'UserController@getGeo');
-/* Front-end routes */
 
 Route::get('/rank', 'UserController@rank')->name('rank');
 
+<<<<<<< HEAD
+Route::get("/static/prize", function () {
+=======
 Route::get("/static/prize", function() {
+>>>>>>> 0ed55ba2d50760199db877dcb6eabffe7c0453a3
     return view("static.prize");
 });
 
-Route::get('/fakereg',function() {
+Route::get('/fakereg', function () {
     $faker = Faker\Factory::create();
     $faker->locale('th_TH');
     User::create([
@@ -71,6 +74,12 @@ Route::get('/fakereg',function() {
     ]);
     return redirect('/');
 });
+<<<<<<< HEAD
+
+Route::get("/fixed-thank", function() {
+   return view('fixed-report-thank');
+=======
 Route::get("/static/report-fixed", function() {
     return view("static-fixed-report");
+>>>>>>> 0ed55ba2d50760199db877dcb6eabffe7c0453a3
 });
