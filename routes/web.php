@@ -36,6 +36,9 @@ Route::group(['middleware'=>'auth'], function() {
 
     Route::get('/volunteer', 'UserController@volunteer')->name('volunteer.index');
 
+    Route::get('/wishlist/{id}/store', 'WishlistController@store')->name('store.wishlist');
+    Route::resource('/wishlist', 'WishlistController', ['except' => ['create', 'edit', 'show', 'update']]);
+
 });
 
 Route::get('/getgeo', 'UserController@getGeo');

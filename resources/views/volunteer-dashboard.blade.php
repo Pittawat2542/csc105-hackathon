@@ -27,29 +27,31 @@
             </div>
             <hr>
             <h3 class="font-weight-bold">Interested</h3>
-            <div class="row mx-1">
-                <div class="card">
-                    <div class="card-body row">
-                        <div class="col-md-5 col-sm-12">
-                            <img class="img-fluid"
-                                 src="https://bredahlplumbing.com/wp-content/uploads/2018/03/pipe-frozen-400x267.jpg"
-                                 alt="">
-                        </div>
-                        <div class="col-md-7 col-sm-12">
-                            <h4 class="font-weight-bold">Description</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid atque
-                                beatae blanditiis debitis dolores eaque fugit in ipsa ipsum labore mollitia nam
-                                officiis perspiciatis porro quisquam repudiandae veniam, voluptates.</p>
-                            <form action="" class="mt-3">
-                                @csrf
-                                <button class="btn btn-success btn-block btn-round" type="submit"><i
-                                        class="fas fa-tools"></i> Fixed
-                                </button>
-                            </form>
+            @if($wishlists)
+                @foreach($wishlists as $wishlist)
+                    <div class="row mx-1">
+                        <div class="card">
+                            <div class="card-body row">
+                                <div class="col-md-5 col-sm-12">
+                                    <img class="img-fluid"
+                                         src="{{$wishlist->photo ? $wishlist->photo->path: 'https://via.placeholder.com/300'}}"
+                                         alt="">
+                                </div>
+                                <div class="col-md-7 col-sm-12">
+                                    <h4 class="font-weight-bold">Description</h4>
+                                    <p>{{$wishlist->raport->body}}</p>
+                                    <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
+                                        @csrf
+                                        <button class="btn btn-success btn-block btn-round" type="submit"><i
+                                                class="fas fa-tools"></i> Fixed
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
             <hr>
             <div class="row d-flex align-items-center">
                 <h4>Category:</h4>
@@ -88,13 +90,14 @@
                                                 class="fas fa-tools"></i> Fixed
                                         </button>
                                     </form>
-                                    <form action="">
-                                        @csrf
-                                        <button onclick="test(this)" class="btn btn-danger btn-block btn-round"
-                                                type="button"><i
-                                                class="fas fa-heart"></i> Interest
-                                        </button>
-                                    </form>
+
+                                    @auth
+                                        <form id="raport-like" class="ml-3">
+                                            <input onclick="clickInterest(this)" id="{{$raport->id}}"
+                                                   class="btn btn-danger btn-block btn-round
+                                            {{$raport->wishlist ? 'interested' : ''}}" type="button" value="♥ Interest">
+                                        </form>
+                                    @endauth
                                 </div>
                             </div>
                         </div>

@@ -38,6 +38,10 @@ class Raport extends Model
         return $this->belongsTo('App\Photo');
     }
 
+    public function wishlist(){
+        return $this->hasOne(Wishlist::class);
+    }
+
     public function calculateDistance() {
         $lat1 = $this->lat;
         $lat2 = Session::get('userLat');

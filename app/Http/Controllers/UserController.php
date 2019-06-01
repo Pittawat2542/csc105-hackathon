@@ -6,6 +6,7 @@ use App\Category;
 use App\Raport;
 
 use App\User;
+use App\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -27,7 +28,11 @@ class UserController extends Controller
         } else {
             $raportsAround = Raport::all();
         }
-        return view('volunteer-dashboard', ['raports'=>$raportsAround, 'categories'=>Category::all()]);
+        return view('volunteer-dashboard', [
+            'raports'=>$raportsAround,
+            'categories'=>Category::all(),
+            'wishlists'=>Wishlist::where("user_id", "=", Auth::user()->id)->orderby('id', 'desc')->paginate(20)
+        ]);
     }
 
     public function getGeo(Request $request) {
