@@ -38,7 +38,9 @@
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
-                                    <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$wishlist->raport->category->name}}</h4>
+                                    <h4><span class="font-weight-bold"><i
+                                                class="fab fa-microsoft"></i> Category</span> {{$wishlist->raport->category->name}}
+                                    </h4>
                                     <h4 class="font-weight-bold">Description</h4>
                                     <p>{{$wishlist->raport->body}}</p>
                                     <form action="{{route('report.show', $wishlist->raport_id)}}" class="mt-3">
@@ -78,11 +80,15 @@
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
-                                        <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}</h4>
-                                        <h4 class="font-weight-bold"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Description</h4>
+                                        <h4><span class="font-weight-bold"><i
+                                                    class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
+                                        </h4>
+                                        <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"
+                                                                        aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
-                                    <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                    <h5 data-toggle="modal" data-target="#exampleModal"><i
+                                            class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
                                         <span style="font-size: 80%;">from your location.</span></h5>
                                 </div>
                                 <div class="col-md-4 col-sm-12 d-flex flex-column justify-content-center">
@@ -108,6 +114,29 @@
             @endif
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $(document).ready(function () {
             var allInterest = document.querySelectorAll('.interested');
