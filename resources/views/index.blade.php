@@ -124,7 +124,7 @@
                     google.maps.event.addListener(marker, "click", function () {
 
                         infowindow.setContent("<div class='text-center'>" +
-                            "<img style='max-height: 5rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                            "<img style='max-height: 7rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
                             "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
                         infowindow.open(map, this)
                     });
