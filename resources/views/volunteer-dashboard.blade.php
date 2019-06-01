@@ -20,9 +20,6 @@
                 </div>
                 <div class="col-md-10">
                     <h2>{{Auth::user()->name}}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cumque deleniti dolore doloremque
-                        eius eos, eveniet facilis fugiat, impedit ipsa nesciunt nostrum quis ratione rerum similique
-                        totam veritatis voluptas! Magni.</p>
                 </div>
             </div>
             <hr>
@@ -61,18 +58,6 @@
                 @endforeach
             @endif
             <hr>
-            <div class="row d-flex align-items-center">
-                <h4><i class="fab fa-microsoft"></i> Category:</h4>
-                <div class="col">
-                    <select name="" id="" class="full-select">
-                        @if($categories)
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                        @endif
-                    </select>
-                </div>
-            </div>
             @if($raports)
                 @foreach($raports as $raport)
                     <div class="row mx-1">
