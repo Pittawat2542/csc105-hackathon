@@ -23,7 +23,7 @@ class RaportController extends Controller
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
             $query = Raport::distance($lat, $lng);
-            $raportsAround  = $query->orderBy('distance', 'DESC')->get();
+            $raportsAround  = $query->orderBy('distance', 'ASC')->get();
 
         } else {
             $raportsAround = Raport::all();
@@ -111,14 +111,4 @@ class RaportController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Raport  $raport
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Raport $raport)
-    {
-
-    }
 }

@@ -20,7 +20,7 @@ class CategoryController extends Controller
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
             $query = Raport::distance($lat, $lng)->where('category_id', '=', $id);
-            $raportsAround  = $query->orderBy('distance', 'DESC')->get();
+            $raportsAround  = $query->orderBy('distance', 'ASC')->get();
         } else {
             $raportsAround = Raport::where('category_id', '=', $id)->get();
         }
