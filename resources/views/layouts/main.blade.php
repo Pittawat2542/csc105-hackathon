@@ -33,7 +33,7 @@
 <script src="/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
 <!--  Google Maps Plugin  -->
 <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5pqlf37NqcN8xW6-FW2pbFEgpZ7ssTIk&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5pqlf37NqcN8xW6-FW2pbFEgpZ7ssTIk&callback=initMap&libraries=places"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
