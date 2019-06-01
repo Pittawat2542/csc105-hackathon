@@ -99,28 +99,28 @@ footer {
     max-width: 1140px;
 }
 
-#volunteerList h4, #volunteerList i {
+h4.rank , i.rank  {
     font-size: 2.3rem;
     color: gray;
     position: absolute;
     left: 5%;
 }
 
-#volunteerList .card:nth-child(2) h4, #volunteerList .card:nth-child(2) i {
+h4.rank.rank-1 ,i.rank.rank-1{
     font-size: 2.3rem;
     color: #FFA400;
     position: absolute;
     left: 5%;
 }
 
-#volunteerList .card:nth-child(3) h4, #volunteerList .card:nth-child(3) i {
+#volunteerList .rank-2 {
     font-size: 2.3rem;
     color: #D3D3D3;
     position: absolute;
     left: 5%;
 }
 
-#volunteerList .card:nth-child(4) h4, #volunteerList .card:nth-child(4) i {
+#volunteerList .rank-3 {
     font-size: 2.3rem;
     color: #b87333;
     position: absolute;
@@ -151,7 +151,7 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
-    #volunteerList h4 {
+     h4.rank {
         display: none;
     }
 
@@ -160,7 +160,7 @@ footer {
     }
 
     @media screen and (min-width: 576px) {
-        #volunteerList h4, #volunteerList i {
+        h4.rank, i.rank {
             font-size: 3.3rem !important;
         }
     }
