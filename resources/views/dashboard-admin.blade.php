@@ -19,7 +19,7 @@
                                 <p>{{$raport->body}}</p>
                                 <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
                                     <span style="font-size: 80%;">from your location.</span></h5>
-                                <h5>Created {{$raport->created_at}} by {{$raport->user->name}}</h5>
+                                <h5>Created {{$raport->created_at}} by {{$raport->userReport->username}}</h5>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-12 d-flex flex-column justify-content-center">

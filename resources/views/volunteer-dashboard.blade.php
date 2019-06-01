@@ -34,7 +34,7 @@
                             <div class="card-body row">
                                 <div class="col-md-5 col-sm-12">
                                     <img class="img-fluid"
-                                         src="{{$wishlist->photo ? $wishlist->photo->path: 'https://via.placeholder.com/300'}}"
+                                         src="{{$wishlist->raport->photo ? $wishlist->raport->photo->path: 'https://via.placeholder.com/300'}}"
                                          alt="">
                                 </div>
                                 <div class="col-md-7 col-sm-12">

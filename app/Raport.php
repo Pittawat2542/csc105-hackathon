@@ -27,7 +27,7 @@ class Raport extends Model
     }
 
     public function userReport() {
-        return $this->belongsTo('App\User', 'user_id_raport');
+        return $this->belongsTo('App\User', 'id', 'user_id_raport');
     }
 
     public function category() {
