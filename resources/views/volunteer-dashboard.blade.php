@@ -26,7 +26,7 @@
                 </div>
             </div>
             <hr>
-            <h3 class="font-weight-bold">Interested</h3>
+            <h3 class="font-weight-bold">Potentials</h3>
             @if($wishlists)
                 @foreach($wishlists as $wishlist)
                     <div class="row mx-1">
