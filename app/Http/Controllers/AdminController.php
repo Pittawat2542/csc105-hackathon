@@ -14,4 +14,8 @@ class AdminController extends Controller
     public function index() {
         return view('dashboard-admin', ['raports'=>Raport::paginate(25)]);
     }
+
+    public function distroy($id) {
+
+    }
 }
