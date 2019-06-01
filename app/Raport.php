@@ -68,4 +68,3 @@ class Raport extends Model
         }
     }
 
-}
