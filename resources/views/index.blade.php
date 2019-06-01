@@ -2,7 +2,7 @@
 
 @section('content')
     @include('logo')
-    <div class="container">
+    <div class="container" id="index-container">
         <div class="row justify-content-center">
             <a class="col-auto btn btn-primary bg-primary-orange btn-raised btn-lg my-3 mb-5 mr-2"
                style="font-size: 1rem;"
@@ -18,7 +18,7 @@
                 <div class="row d-flex align-items-center">
                     <h4 class="ml-3 ml-md-0 font-weight-bold">Category:</h4>
                     <div class="col">
-                        <select class="full-select">
+                        <select class="full-select" name="category-selector">
                             <option data-display="Select">Nothing</option>
                             @if($categories)
                                 @foreach($categories as $category)
