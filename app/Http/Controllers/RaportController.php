@@ -19,16 +19,16 @@ class RaportController extends Controller
      */
     public function index()
     {
-        if((Session::get('userLat')!=null) | (Session::get('userLng')!=null)) {
+        if ((Session::get('userLat') != null) | (Session::get('userLng') != null)) {
             $lat = str_replace(',', '.', Session::get('userLat'));
             $lng = str_replace(',', '.', Session::get('userLng'));
             $query = Raport::distance($lat, $lng);
-            $raportsAround  = $query->orderBy('distance', 'ASC')->get();
+            $raportsAround = $query->orderBy('distance', 'ASC')->get();
 
         } else {
             $raportsAround = Raport::all();
         }
-        return view('index', ['raports'=>$raportsAround, 'categories'=>Category::all()]);
+        return view('index', ['raports' => $raportsAround, 'categories' => Category::all()]);
     }
 
     /**
@@ -38,13 +38,13 @@ class RaportController extends Controller
      */
     public function create()
     {
-        return view('report', ['categories'=>Category::all()]);
+        return view('report', ['categories' => Category::all()]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,8 +54,8 @@ class RaportController extends Controller
         $data['lng'] = Session::get('userLng');
         $data['lat'] = Session::get('userLat');
         $photo = new Photo();
-        if($file = $request->file('photo')){
-           $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
+        if ($file = $request->file('photo')) {
+            $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', '0', Auth::user()->id);
         }
         Raport::create($data);
         return redirect('/');
@@ -64,18 +64,18 @@ class RaportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Raport  $raport
+     * @param \App\Raport $raport
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return view('fixed-report', ['raport'=>Raport::findOrFail($id)]);
+        return view('fixed-report', ['raport' => Raport::findOrFail($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Raport  $raport
+     * @param \App\Raport $raport
      * @return \Illuminate\Http\Response
      */
     public function edit(Raport $raport)
@@ -89,21 +89,30 @@ class RaportController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function fixed(Request $request, $id) {
-        $raport = Raport::findOrFail($id);
+    public function fixed(Request $request)
+    {
+        $raport = Raport::findOrFail($request->id);
         $requestRaport['user_id'] = Auth::user()->id;
         $raport->update($requestRaport);
         $photo = new Photo();
-        if($file = $request->file('photo')){
-            $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', $id, Auth::user()->id);
+
+        if ($file = $request->file('photo')) {
+            $data['photo_id'] = $photo->photoUpload($request->file('photo'), 'raport_', $request->id, Auth::user()->id);
         }
-        return redirect('/');
+
+        return redirect('/raport/fixed/thank');
     }
+
+    public function thank()
+    {
+        return view('fixed-report-thank');
+    }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Raport  $raport
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Raport $raport
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Raport $raport)
