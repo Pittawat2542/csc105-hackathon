@@ -13,7 +13,7 @@
             <div class="mr-auto"></div>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{Route('rank')}}" class="nav-link">Rank</a>
+                    <a href="{{Route('rank')}}" class="nav-link"><i class="fas fa-medal"></i> Rank</a>
                 </li>
                 @guest
                     <li class="nav-item">
