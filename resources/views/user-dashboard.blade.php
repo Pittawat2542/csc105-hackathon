@@ -26,6 +26,10 @@
                                 </div>
                                 <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
                                     <div>
+                                        <h4><span class="font-weight-bold"><i
+                                                    class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
+                                        </h4>
+                                        <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                         <p><i class="fas fa-map-marked-alt"></i> Location: {{$raport->lat}}
                                             , {{$raport->lng}} | Added {{$raport->created_at}} </p>

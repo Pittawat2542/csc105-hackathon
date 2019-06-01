@@ -40,6 +40,8 @@
                                     </div>
                                     <div class="col-md-8 col-sm-12 d-flex flex-column justify-content-around">
                                         <div>
+                                            <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
+                                            </h4>
                                             <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description
                                             </h4>
                                             <p>{{$raport->body}}</p>
@@ -87,14 +89,14 @@
         function initMap() {
             var lat_collection = [
                 @if($raports)
-                    @foreach($raports as $raport)
+                @foreach($raports as $raport)
                 {{$raport['lat'].','}}
-                    @endforeach
+                @endforeach
                 @endif
             ];
             var lng_collection = [
                 @if($raports)
-                        @foreach($raports as $raport)
+                @foreach($raports as $raport)
                 {{$raport['lng'].','}}
                 @endforeach
                 @endif
@@ -108,23 +110,23 @@
                     var marker = new google.maps.Marker({map: map, position: sit_kmutt});
                     var newMarker;
                     @if($raports)
-                            @foreach($raports as $raport)
-                                newMarker = new google.maps.Marker({
-                                    map: map, position: {
-                                        lat: lat_collection[{{$loop->index}}],
-                                        lng: lng_collection[{{$loop->index}}],
-                                        title: '{{$raport->category->name}}',
-                                    }
-                                });
+                        @foreach($raports as $raport)
+                        newMarker = new google.maps.Marker({
+                        map: map, position: {
+                            lat: lat_collection[{{$loop->index}}],
+                            lng: lng_collection[{{$loop->index}}],
+                            title: '{{$raport->category->name}}',
+                        }
+                    });
 
-                                google.maps.event.addListener(newMarker, "click", function () {
+                    google.maps.event.addListener(newMarker, "click", function () {
 
-                                    infowindow.setContent("<div class='text-center'>" +
-                                        "<img class='img-fluid' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
-                                        "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
-                                    infowindow.open(map, this)
-                                });
-                            @endforeach
+                        infowindow.setContent("<div class='text-center'>" +
+                            "<img class='img-fluid' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                            "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
+                        infowindow.open(map, this)
+                    });
+                    @endforeach
                     @endif
                     google.maps.event.addListener(marker, "click", function () {
                         infowindow.setContent("<div class='text-center'><img src='https://www.waterdamageadvisor.com/wp-content/uploads/2015/05/Broken-and-Damaged-Pipes.jpg'><h2>Broken Pipe</h2><p><strong>" + place.name + "</strong><br>" + place.formatted_address + "</p></div>");

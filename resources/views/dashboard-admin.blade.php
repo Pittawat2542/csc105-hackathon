@@ -15,6 +15,8 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div>
+                                <h4><span class="font-weight-bold"><i class="fab fa-microsoft"></i> Category</span> {{$raport->category->name}}
+                                </h4>
                                 <h4 class="font-weight-bold"><i class="fas fa-pencil-alt"></i> Description</h4>
                                 <p>{{$raport->body}}</p>
                                 <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
