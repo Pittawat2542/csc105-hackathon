@@ -76,6 +76,3 @@ Route::get('/fakereg', function () {
 Route::get('/fixed-thank', function() {
    return view('fixed-report-thank');
 });
-Route::get('/static/report-fixed', function() {
-    return view('static-fixed-report');
-});
