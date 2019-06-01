@@ -26,6 +26,7 @@
             <h3 class="font-weight-bold"><i class="fas fa-star"></i> Potentials</h3>
             @if($wishlists)
                 @foreach($wishlists as $wishlist)
+                    @if($wishlist->raport)
                     <div class="row mx-1">
                         <div class="card">
                             <div class="card-body row">
@@ -55,6 +56,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             @endif
             <hr>
