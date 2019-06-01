@@ -60,7 +60,13 @@ class Raport extends Model
             if($result<0.02) {
                 return "<0.02";
             } else {
-                return ($miles * 1.609344);
+                if($result<1) {
+                    $resRound = round($result, 3);
+                    return $resRound;
+                } else {
+                    $resRound = round($result,1);
+                    return $resRound;
+                }
             }
         }
     }
