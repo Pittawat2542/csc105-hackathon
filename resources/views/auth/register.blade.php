@@ -9,7 +9,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="name">{{ __('Name') }}</label>
+                        <label for="name"><i class="far fa-id-badge"></i> {{ __('Name') }}</label>
 
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="email">{{ __('E-Mail Address') }}</label>
+                        <label for="email"><i class="far fa-envelope"></i> {{ __('E-Mail Address') }}</label>
 
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">{{ __('Password') }}</label>
+                        <label for="password"><i class="fas fa-lock"></i> {{ __('Password') }}</label>
 
                         <input id="password" type="password"
                                class="form-control @error('password') is-invalid @enderror" name="password" required
@@ -49,14 +49,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                        <label for="password-confirm"><i class="fas fa-lock"></i> {{ __('Confirm Password') }}</label>
 
                         <input id="password-confirm" type="password" class="form-control"
                                name="password_confirmation" required autocomplete="new-password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Register') }}
+                    <hr>
+
+                    <button type="submit" class="btn btn-primary bg-primary-orange">
+                        <i class="far fa-edit"></i> {{ __('Register') }}
                     </button>
                 </form>
             </div>
