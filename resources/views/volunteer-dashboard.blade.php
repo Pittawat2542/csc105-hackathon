@@ -87,7 +87,7 @@
                                                                         aria-hidden="true"></i> Description</h4>
                                         <p>{{$raport->body}}</p>
                                     </div>
-                                    <h5 data-toggle="modal" data-target="#exampleModal"><i
+                                    <h5 class="text-primary-blue" data-toggle="modal" data-target="#exampleModal"><i
                                             class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
                                         <span style="font-size: 80%;">from your location.</span></h5>
                                 </div>
@@ -110,6 +110,38 @@
                             </div>
                         </div>
                     </div>
+
+                    <script>
+                        function initMap() {
+                            var sit_kmutt = {lat: 13.652594, lng: 100.493621};
+                            var map = new google.maps.Map(document.getElementById("map"), {
+                                center: sit_kmutt,
+                                zoom: 19
+                            });
+                            var infowindow = new google.maps.InfoWindow();
+                            var service = new google.maps.places.PlacesService(map);
+                            service.getDetails({placeId: "ChIJ9ZZzpVGi4jARI56-Js0p2C8"}, function (place, status) {
+                                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                    var marker;
+                                    marker = new google.maps.Marker({
+                                        map: map, position: {
+                                            lat: {{$raport->lat}},
+                                            lng: {{$raport->lng}},
+                                            title: '{{$raport->category->name}}',
+                                        }
+                                    });
+
+                                    google.maps.event.addListener(marker, "click", function () {
+
+                                        infowindow.setContent("<div class='text-center'>" +
+                                            "<img style='max-height: 10rem;' src='{{$raport->photo ? $raport->photo->path: 'https://via.placeholder.com/300'}}'>" +
+                                            "<h2>{{$raport->category->name}}</h2><p><br>{{$raport->body}}</p></div>");
+                                        infowindow.open(map, this)
+                                    });
+                                }
+                            })
+                        }
+                    </script>
                 @endforeach
             @endif
         </div>
@@ -121,17 +153,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Location</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div id="map">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
