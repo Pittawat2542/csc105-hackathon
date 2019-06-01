@@ -44,7 +44,7 @@
                                             </h4>
                                             <p>{{$raport->body}}</p>
                                         </div>
-                                        <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}} KM</span>
+                                        <h5><i class="fas fa-map-marker-alt"></i> <span class="font-weight-bold">{{$raport->calculateDistance()}}</span>
                                             <span style="font-size: 80%;">from your location.</span></h5>
                                     </div>
                                 </div>
